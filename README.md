@@ -1,2 +1,3 @@
-# senorita
-Publicly funded teaching project on social network analysis using R
+# SENORITA
+Selbstgesteuerte Netzwerkmodellierung mit R in Teams (SENORITA)
+gefördert im Rahmen der HUMUS-Mikroprojekte
