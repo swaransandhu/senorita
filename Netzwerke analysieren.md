@@ -3,17 +3,17 @@ In Lektion 5 lernen Sie, wie man Netzwerke für die Analyse vorbereitet.
 ## Einführung Zachary Datensatz
 Wir arbeiten zunächst mit dem Zachary Datensatz: karate, der bereits im igraphdata Paket hinterlegt ist. Er muss also nicht eingelesen werden, sondern kann direkt aufgerufen werden.
 
-`> library(igraph) # lädt das igraph Paket´
+`> library(igraph) # lädt das igraph Paket`
 
-`> library(igraphdata) # lädt die Datensätze aus dem igraphdata Paket´
+`> library(igraphdata) # lädt die Datensätze aus dem igraphdata Paket`
 
-`> data(karate) # lädt den Datensatz karate´
+`> data(karate) # lädt den Datensatz karate`
 
-`> karate # zeigt das igraph Objekt karate an´
+`> karate # zeigt das igraph Objekt karate an`
 
-`> ?karate # liefert Hintergrundinformationen zum Datensatz´
+`> ?karate # liefert Hintergrundinformationen zum Datensatz`
 
-`> plot(karate) # liefert eine erste Visualisierung´
+`> plot(karate) # liefert eine erste Visualisierung
 
 Wie bei allen Netzwerken ist es wichtig, den Hintergrund des Datensatzes zu verstehen:
 
