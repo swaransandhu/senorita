@@ -306,3 +306,30 @@ Im Beispiel sieht man sehr schön, wie sich die Communities im Hilfesuch-Netzwer
 Vertiefende Anmerung: Es gibt noch eine Reihe anderer Berechnungen für Communities und Cluster, aber für den ersten Überblick hat sich der Walktrap-Algorithmus bewährt.
 
 ## Dyaden und Triaden
+Dyaden und Triaden sind wichtige Beschreibungen des Aufbaus eines Netzwerks.
+
+### Anzahl der Dyaden
+`> z <- make_graph("Zachary")`
+
+`> dyad_census(z)`
+
+**Mutual**: Die Ausgabe berechnet die Anzahl der dyadischen Beziehungen in einem Netzwerk. Da das Karate Netzwerk ungerichtet ist, entspricht die Anzahl der gegenseitigen Beziehungen (mutual) genau der Anzahl der Edges im Netzwerk (lässt sich aus dem igraph-Objekt z auslesen).
+
+**Asymmetrische** Beziehungen sind nur in einem gerichteten Netzwerk relevant.
+
+**Null** Beziehungen gibt an, wie viele Beziehungen nicht realisiert wurden. Auch wenn die Zahl auf den ersten Blick hoch erscheint, ist dies nicht weiter verwunderlich, weil das Netzwerk über eine geringe Dichte verfügt.
+
+`> edge_density(z, loops=FALSE)`
+
+### Triadenzensus
+Triaden sind die zentralen Bausteine von Netzwerken. Sie können 16 verschiedene Formen annehmen, die überlicherweise immer in der gleichen Reihenfolge benannt sind:
+
+`> triad_census(z) # führt den Triadenzensus durch`
+
+Ausgegeben werden genau die 16 Typen in der Reihenfolge. Beispielsweise gibt es 45 vollständige Cliquen im Netzwerk.
+
+`> # Durchsuchen nach Cliquen`
+
+`> clique_num(z) # durchsucht nach maiximaler Anzahl von Cliquen`
+
+**Übung**: Untersuchen Sie das Semesternetzwerk auf Cliquen.
