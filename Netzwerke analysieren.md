@@ -13,7 +13,7 @@ Wir arbeiten zunächst mit dem Zachary Datensatz: karate, der bereits im igraphd
 
 `> ?karate # liefert Hintergrundinformationen zum Datensatz`
 
-`> plot(karate) # liefert eine erste Visualisierung
+`> plot(karate) # liefert eine erste Visualisierung`
 
 Wie bei allen Netzwerken ist es wichtig, den Hintergrund des Datensatzes zu verstehen:
 
