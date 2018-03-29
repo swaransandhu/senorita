@@ -163,6 +163,38 @@ Es gibt aber noch einen anderen Weg, um das Netzwerk zu reduzieren. Wir wollen j
 
 Die Abbildung bestätigt, dass beides Mal das gleiche Netzwerk um Mr. Hi isoliert wurde. Zur besseren Vergleichbarkeit sind die beiden Netzwerke mit dem Kamada-Kawai Algorithmus visualisiert ("layout_with_kk"), der den Knoten einen festen Punkt zuweist und sich so gut für den Vergleich von Netzwerken und Teilnetzwerken eignet.
 
-**Übung**: Vergleichen Sie jetzt die Untergruppen Faction 1 und Faction 2 in einem Netzwerk. Das Ergebnis sollte so aussehen... Am einfachsten 
+**Übung**: Vergleichen Sie jetzt die Untergruppen Faction 1 und Faction 2 in einem Netzwerk. Das Ergebnis sollte so aussehen... Am einfachsten funktioniert dies mit dem Befehl "delete_vertices". Sie können das Skript von oben entsprechend anpassen.
+
+![Zwei Fraktionen](Link zum Bild)
+
+### Teilnetzwerke nach Kantengewichten isolieren
+Das gleiche lässt sich auch für die Kanten in einem Netzwerk machen. Beispielsweise wollen wir nur Kanten mit einem Gewicht > 4 in dem Netzwerk behalten. Dazu verwenden wir den Befehl [subgraph.edges](http://igraph.org/r/doc/subgraph.html) und entsprechende logische Operatoren.
+
+`> karate4 <- subgraph.edges(karate, E(karate)[weight > 4]) # zeigt nur Kanten mit einem Gewicht größer 4 an`
+
+`> karate4`
+
+`> plot(karate4)`
+
+Natürlich lassen sich die Variablen in allen Beispielen entsprechend anpassen, dazu lassen sich die **eingängigen logischen Operatoren** verwenden.
+
+* = entspricht genau dem Wert
+* > ist größer als bzw. < ist kleine als
+* ! ist nicht (logischer Ausschluss, kann sich auf gleich bzw. größer oder kleiner beziehen und wird vorangestellt, z.B. != ist nicht gleich, !> ist nicht größer oder !< ist nicht kleiner)
+
+Hier ist es wichtig, sich die Gruppe, die besonders interessant ist, logisch abzuleiten. Manchmal ist es z.B. einfacher, alle Attributswerte zu löschen, die **nicht** zutreffen, um eine bestimmte Gruppe zu isolieren.
+
+### Auflösung Faction 1 und Faction 2
+`> karate1 <- delete_vertices(karate, V(karate)[Faction != "1"])`
+
+`> karate2 <- delete_vertices(karate, V(karate)[Faction == "1"])`
+
+`> dev.off()`
+
+`> par(mfrow=c(1,2))`
+
+`> plot(karate1, layout = layout_with_kk, main = "Faction 1")`
+
+`> plot(karate2, layout = layout_with_kk, main = "Faction 2")`
 ## Komponenten, Communities und Cluster
 ## Dyaden und Triaden
