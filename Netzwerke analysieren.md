@@ -197,4 +197,112 @@ Hier ist es wichtig, sich die Gruppe, die besonders interessant ist, logisch abz
 
 `> plot(karate2, layout = layout_with_kk, main = "Faction 2")`
 ## Komponenten, Communities und Cluster
+Komponenten und Cluster haben auf den ersten Blick einen oberflächlichen Zusammenhang, weil sie etwas über die Zusammensetzung des Netzwerks aussagen.
+
+* Komponenten (components) sind die Bestandteile eines Netzwerks. Sind alle Knoten miteinander verbunden, gibt es nur eine Komponente. Zerfällt ein Netzwerk hingegen in unterschiedliche, unverbundene Unternetzwerke, dann werden diese als Komponenten eines Netzwerks bezeichnet.
+* Cluster hingegen sind Ansammlung von Knoten innerhals eines Netzwerks, die aufgrund einer bestimmten Eigenschaft zusammen aggregiert sind.
+
+Components können also Cluster enthalten, aber nicht umgekehrt.
+
+### Einlesen eines Beispieldatensatzes
+Schauen wir das an einem Beispiel an. Wir verwenden dafür das Beziehungsnetzwerk aus dem [Kurs](https://github.com/hdm-crpr/226305/tree/master/datasets/kurs). Wir nutzen die CSV Dateien ehelp und nodes. Die Links, mit denen wir mithilfe der unteren Befehle die Daten einlesen, generiert man, indem man auf die jeweilige Datei und dann auf "raw" drückt. Die angezeigte URL kann dann in den Befehl kopiert werden.
+
+`> library(igraph) # nicht vergessen!`
+
+`> # die Dateien werden direkt aus dem GitHubVerzeichnis gelesen`
+
+`> help <- read.csv("https://raw.githubusercontent.com/hdm-crpr-226305/master/datasets/kurs/ehelp.csv", header=T, as.is=T, sep=",")`
+
+`> nodes <- read.csv("https://raw.githubusercontent.com/hdm-crpr-226305/master/datasets/kurs/nodes.csv", header=T, as.is=T, sep=",")`
+
+`> # prüft, ob alle Variablen eingelesen wurden`
+
+`> head(helP)`
+
+`> head(nodes)`
+
+`> # wandelt die edgelist in eine Matrix um und baut das igraph Objekt in Verbindung mit der nodelist`
+
+`> hties <- as.matrix(help)`
+
+`> help <- graph_from_data_frame(d=hties, vertices=nodes, directed=T) # damit ist das vorherige help überschrieben`
+
+`> help`
+
+`> # addiert edges auf, wenn sie auf der gleichen Beziehung sind`
+
+`> h <- simplify(held, edge.attr.comb=list(weight="sum"))`
+
+`> # ruft das finale igraph Objekt auf`
+
+`> h`
+
+`> # einfache Visualisierung`
+
+`> plot(h, edge.arrow.size=0.2, edge.curved=0.2, layout=layout_with_fr, edge.width=E(h)$weight, main="Beispielnetzwerk Semester")`
+
+Ihre Abbildung wurde jetzt mit dem Fruchterman-Rheingold Algorithmus visualisiert. Beachten Sie, dass die Visualisierung bei diesem Algorithmus iterativ ist, d.h. die Abbildungen sehen sich ähnlich, aber jedes Mal unterschiedlich aus.
+
+Man erkennt dabei auf den ersten Blick, dass das Netzwerk **in zwei miteinander nicht verbundene Komoponenten** zerfällt.
+
+![Beispielnetzwerk Semester](Link zum Bild)
+
+### Analyse vom Komponenten
+Für die Analyse von Komponenten des Netzwerks verwenden wir den Befehl [components](http://igraph.org/r/doc/components.html).
+
+`> # Analyse der Components`
+
+`> # Zunächst prüfen wir, ob das Netzwerk überhaupt zusammenhängend ist`
+
+`> is_connected(h)`
+
+`> # Die Aussage des logischen Operators ist immer "true" oder "false". True bedeutet, dass es sich nur um eine Komponente handelt. False, dass es sich um unverbundene Netzwerke handelt.`
+
+`> # Diese Prüfung ist besonders bei großen und unübersichtlichen Netzwerken hilfreich`
+
+`> # Mit dem Befehl components können wir die Komponenten in Gruppen einteilen`
+
+`> co <- components(h)`
+
+`> # zeigt uns die Verteilung und die Größe der Komponenten an`
+
+`> co`
+
+`> # Dabei zeigt sich, dass das Netzwerk aus zwei Komponenten besteht`
+
+`> groups(co)`
+
+`> # Die Komponenten zeigen uns die natürliche Verteilung im Netzwerk an`
+
+### Community Analyse
+Communities sind in der Regel dichte Teilnetzwerke. Es gibt eine Reihe von Algorithmen, um Communities zu bilden. Ein wichtiges Maß für Communities ist die Modularität. Modularität beschreibt, wie weit Knoten voneinander im Netzwerk entfernt sind. Je höher der Modularitätswert, desto weiter sind die Knoten voneinander entfernt bzw. zerfallen in Teilgruppen. Der Befehl für Communities und Cluster ist ähnlich, im Beispiel verwenden wir den [Walktrap](http://igraph.org/r/doc/cluster_walktrap.html)-Algorithmus.
+
+Cluster sind Gruppen von Knoten, die über ähnliche Eigenschaften verfügen. Es gibt unterschiedliche Möglichkeiten, um Cluster zu analysieren. Beim Walktrap-Algorithmus geht es darum, dichte verbundene Teilnetzwerke zu finden (Communities). Die Idee basiert auf der Annahme, dass kurze Pfaddistanzen überwiegend im gleichen Netzwerk stattfinden. Als Beispiel verwenden wir wieder das Karate Netzwerk. Die Modularität zeigt an, wie stark einzelne Knoten voneinander abweichen.
+
+`> k <- make_graph("Zachary") # erstellt das Netzwerk`
+
+`> wc <- cluster_walktrap(k) # wendet die Cklusterung auf das Netzwerk an`
+
+`> modularity(wc) # berechnet den Modularitätswert`
+
+`> membership(wc) # weist die Mitgliedschaft in die Communities zu`
+
+`> plot(wc, k) # visualisiert die Communities`
+
+**Übung**: Analysieren Sie die Modularität und den Walktrap-Algorithmus des Semesternetzwerks:
+
+`> wch <- cluster_walktrap(h)`
+
+`> modularity(wch)`
+
+`> membership(wch)`
+
+`> plot(wch, h, edge.arrow.size=0.1, main="Communities im Semester")
+
+Im Beispiel sieht man sehr schön, wie sich die Communities im Hilfesuch-Netzwerk unterteilen (Waktrap-Algorithmus).
+
+![Walktrap Algorithmus](Link zum Bild)
+
+Vertiefende Anmerung: Es gibt noch eine Reihe anderer Berechnungen für Communities und Cluster, aber für den ersten Überblick hat sich der Walktrap-Algorithmus bewährt.
+
 ## Dyaden und Triaden
