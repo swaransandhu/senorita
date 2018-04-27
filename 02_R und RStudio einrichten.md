@@ -8,7 +8,7 @@ Wer tiefer in R einsteigen möchte, sollte sich die kostenlosen Online-Kurse ans
 + [Datacamp Introduction to R](https://www.datacamp.com/courses/free-introduction-to-r)
 + [EdX Introduction to R](https://www.edx.org/course/introduction-to-r-for-data-science)
 
-Deutschsprachige Kurse finden Sie z.B. bei [Video2Brain](https://www.video2brain.com/de/videotraining/r-und-rstudio-grundkurs) oder [Lynda](https://www.lynda.com/R-tutorials/Up-Running-R/120612-2.html?srchtrk=index%3a4%0alinktypeid%3a2%0aq%3aR%0apage%3a1%0as%3arelevance%0asa%3atrue%0aproducttypeid%3a2)(HdM VPN Zugang notwendig). 
+Deutschsprachige Kurse finden Sie z.B. bei [Video2Brain](https://www.video2brain.com/de/videotraining/r-und-rstudio-grundkurs) oder [Lynda](https://www.lynda.com/R-tutorials/Up-Running-R/120612-2.html?srchtrk=index%3a4%0alinktypeid%3a2%0aq%3aR%0apage%3a1%0as%3arelevance%0asa%3atrue%0aproducttypeid%3a2) (HdM VPN Zugang notwendig). 
 ## Pakete installieren
 Wenn Sie R das erste Mal installieren, wird nur das Basis-System installiert. Alle weiteren Funktionen sind in sogenannten **Paketen (packages)** abgelegt. Pakete können individuell installiert werden. Dabei werden sie in Verzeichnissen abgelegt, die man **libraries** nennt. Achtung: **Package** und **library** meinen damit nicht dasselbe, sondern haben eher eine Beziehung wie ein Buch (=package) zu seinem Regal (=library)!
 
