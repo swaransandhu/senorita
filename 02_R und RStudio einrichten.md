@@ -30,7 +30,7 @@ Beispielhaft installieren wir gemeinsam das Paket "swirl". Swirl ist eine intera
 
 1. Gehen Sie in RStudio über das Menü auf "Tools" und "Install Packages" (siehe vorheriges Kapitel). Geben Sie in das Fenster "swirl" ein. Setzen Sie den Haken bei "Install dependencies".
 
-![Pakete installieren](Link zum Bild)
+![Pakete installieren](/00_images/InstallPaket.png)
 
 * Alternativ können Sie diesen Befehl auch direkt in die Konsole eingeben und auf Enter drücken:
 
@@ -42,7 +42,7 @@ Beispielhaft installieren wir gemeinsam das Paket "swirl". Swirl ist eine intera
 
 4. Wenn Sie sich nun im unteren rechten Arbeitsfenster unter dem Reiter "Packages" die Pakete auflisten lassen, taucht auch "swirl" auf. Wenn Sie auf den **Namen des Pakets** klicken, erhalten Sie eine Übersicht über die Inhalte des Pakets und die wichtigsten Befehle, die das Paket beinhaltet. Das ist sehr hilfreich, um sich einen ersten Überblick zu verschaffen.
 
-![Übersicht über das Paket](Link zum Bild)
+![Übersicht über das Paket](/00_images/UebersichtPaket.png)
 ### Paket swirl ausführen
 Sie haben nun also Ihr Buch (=Paket) in Ihr Regal (=library) gestellt (=installiert). Um es zu nutzen, reicht dies jedoch nicht aus. Während Sie das Buch lesen müssten, um dessen Inhalt zu erfassen, müssen Sie Pakete **laden**, damit sie genutzt werden können. Wenn Sie Pakete zwar installieren, aber nicht laden, werden die Befehle, die auf dem Paket basieren, nicht von der Konsole ausgeführt. Erst, wenn Sie Pakete auch laden, kann die Konsole mit ihnen arbeiten.
 
@@ -58,7 +58,7 @@ Starten Sie nun das Paket mit dem Befehl:
 
 `> swirl() #startet das Paket swirl`
 
-![Swirl](Link zum Bild)
+![Swirl](/00_images/Swirl.png)
 
 Sie sehen einen interaktiven Dialog, der Sie durch verschiedene Funktionen von R führt.
 ### Pro-Tipps: Kurzbefehle
@@ -68,4 +68,4 @@ In RStudio gibt es einige hilfreiche Kurzbefehle, die Ihnen das Leben sehr viel 
 * **Letzte Befehle wiederholen**: Häufig arbeiten wir mit den gleichen Codes bzw. variieren die Befehle nur geringfügig. Die letzten Befehle werden durch CTRL + Pfeil Auf (Mac: Command + Pfeil Auf) wieder aufgerufen. Das funktioniert aber nur in der Konsole.
 * **Befehle ausführen**: Wir unterscheiden in R zwischem dem Editor (der Ort, an dem der Code oder das Skript geschrieben wird) und der Konsole, in der der Befehl ausgeführt wird. Um eine Code-Zeile im Editor auszuführen, wird die entsprechende Zeile ausgewählt, indem man den Cursor in sie setzt und mit CTRL + ENTER (Mac: Command + Enter) ausgeführt. Um mehrere Code Zeilen auszuführen, müssen diese zuvor ausgewählt und dann mit dem gleichen Befehl ausgeführt werden. Alternativ kann man im Editor auf den Befehl "run" klicken.
 
-![Editor und Konsole](Link zum Bild)
+![Editor und Konsole](/00_images/Editor.png)
