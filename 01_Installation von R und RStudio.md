@@ -21,10 +21,6 @@ Testen Sie, ob R auf Ihrem System läuft, indem Sie das Programm mit einem Doppe
 
 Testen Sie die Installation, indem Sie "version" in die Kommandozeile eingeben und Enter drücken. Sie erhalten dann einen Output über die aktuell installierte Version.
 
-**Video-Tutorial zur Installation von R.**
-
-![R Konsole](/00_images/InstallationVideo.mp4)
-
 ## R und die Kommadozeile
 Die erste Begegnung mit R kann etwas verwirrend sein, da R ein Kommandozeilen-Programm ist. Das heißt, dass es keine bunten Icons oder eine grafische Oberfläche gibt, auf die man klicken kann (wie in MS-Office), sondern jeder Befehl manuell als Textbefehl eingegeben werden muss. Grafische Oberflächen führen diese Befehle für den Nutzer automatisch im Hintergrund aus. Dabei kann man nur schwer durchschauen, was ein Klick auf die Schaltfläche nun genau auslöst. Mit einem Kommandozeilen-Programm wie R hat man also theoretisch gesehen eine viel genauere Kontrolle über das, was man gerade bearbeitet.
 
@@ -65,7 +61,7 @@ Die Installation ist ganz einfach. Gehen Sie auf [RStudio](https://www.rstudio.c
 ## Aufbau von RStudio
 RStudio ist einfach aufgebaut und liefert viele individuell anpassbare Möglichkeiten. Wir bleiben hier bei der Standard-Ansicht:
 
-![Standard-Ansicht](Link zum Bild)
+![Standard-Ansicht](/00_images/Aufbau.png)
 
 Die Software ist in vier Fenster aufgeteilt, die wiederum eigene Reiter haben können. Die Reihenfolge der Fenster und der Reiter kann unter "View" geändert werden.
 
