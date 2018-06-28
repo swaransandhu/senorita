@@ -17,7 +17,7 @@ Windows: Laden Sie die aktuelle "base" Installation *.exe herunter und starten S
 
 Testen Sie, ob R auf Ihrem System läuft, indem Sie das Programm mit einem Doppelklick starten. Das gilt für Mac sowie für Windows. Sie sollten dann die R-Konsole als Kommandozeile sehen, wie der untenstehende Screenshot anzeigt.
 
-![R Konsole](Link zum Bild)
+![R Konsole](/00_images/RKonsole.png)
 
 Testen Sie die Installation, indem Sie "version" in die Kommandozeile eingeben und Enter drücken. Sie erhalten dann einen Output über die aktuell installierte Version.
 
