@@ -76,7 +76,7 @@ Für ein Netzwerk mit 25 Knoten, das linear und ungerichtet ist, sieht der Befeh
 
 `> plot(pa25) # erstellt eine simple Visualisierung des Objekts`
 
-![pa25](Link zum Bild)
+![pa25](/00_images/PA.png)
 
 Der Graph zeigt, dass jeder der 25 Knoten nur mit einem anderen Knoten verbunden ist. Es ist schnell sichtbar, dass die Knoten 1,2, und 3 die Startknoten waren, um die sich die anderen Knoten formiert haben.
 
@@ -100,7 +100,7 @@ Bei Zufallsnetzwerken werden die Netzwerke nach einem Zufallsprinzip erzeugt. Hi
 
 `> plot(gnp38) # erstellt eine simple Visualisierung des Objekts`
 
-![pgnp38](Link zum Bild)
+![pgnp38](/00_images/GNP.png)
 
 In dem Graphen ist ein beispielhaftes Netzwerk entsprechend visualisiert. Es unterscheidet sich deutlich von dem PA-Netzwerk oben, da hier auch mehrere Beziehungen zwischen den Knoten möglich sind.
 
