@@ -7,8 +7,6 @@ In Lektion 3 lernen Sie die wichtigsten Basisoperationen für R kennen.
 
 Bitte beachten Sie auch die Merkblätter für [RStudio (pdf)](https://e-learning.hdm-stuttgart.de/moodle/pluginfile.php/121402/course/section/19489/Basisoperationen%20R.pdf) und [Grundoperationen in R (pdf)](https://e-learning.hdm-stuttgart.de/moodle/pluginfile.php/121402/course/section/19489/Zusammenfassung%20Base%20R.pdf) (Achtung, die Blätter haben jeweils 2 Seiten).
 
-![Merkblätter für R](Link zu Bild)
-
 ## RStudio anpassen
 RStudio lässt sich komplett vom Nutzer anpassen.
 
@@ -16,7 +14,7 @@ Ich empfehle Ihnen, als Minimalanpassung, die Konsole, die Arbeitsumgebung sowie
 
 Sie können die Anzeige unter RStudio > Preferences > Appearances (Mac) oder unter View > Panes > Pane Layout... anpassen.
 
-![Pane Layout](Link zum Bild)
+![Pane Layout](/00_images/Pane.png)
 
 Wie Sie RStudio anpassen, bleibt Ihnen überlassen. Die wichtigsten Funktionen sollten Sie jedoch anzeigen lassen und auch finden können.
 ## Arbeitsverzeichnis (working directory) definieren
@@ -39,11 +37,11 @@ Dafür wählen Sie unter Tools > Global Options > General > Default working dire
 ### 2.Möglichkeit: Working Directory temporär (z.B. für ein Projekt) ändern
 Bei dieser Möglichkeit wird das Working Directory solange verändert, bis Sie RStudio schließen und wieder öffnen. In diesem Fall wird wieder die Default Einstellung aus Möglichkeit 1 genutzt. Um Ihre Arbeitsumgebung temporär zu ändern, rufen Sie im unteren rechten Fenster den Reiter "Files" auf. Sie sehen nun eine grafische Oberfläche der Datei- und Ordnerstruktur Ihres Nutzerordners.
 
-![Datei- und Ordnerstruktur](Link zum Bild)
+![Datei- und Ordnerstruktur](/00_images/Ordner.png)
 
 Wählen Sie nun den für Sie geeigneten Ordner für das Arbeitsverzeichnis aus und merken sich den Speicherort. Wenn Sie mit der Darstellung, die Ihnen RStudio ausgibt, nicht klar kommen oder Ihren gewünschten Ordner nicht direkt finden, können Sie auch auf das Symbol rechts mit den drei Punkten drücken. Dort können Sie Ihren Ordner in Ihrer gewohnten Ordnerstruktur suchen und auswählen. Wenn Sie in dem Ordner sind, den Sie für Ihr Projekt nutzen möchten, müssen Sie nur noch unter "more" die Funktion "set as working directory" auswählen. Damit wird der Ordner als Working Directory angelegt. Sie erhalten auch eine Bestätigung in der Konsole.
 
-![Set as Working Directory](Link zum Bild)
+![Set as Working Directory](/00_images/wd.png)
 
 Als Alternative können Sie das Working Directory einfach im Menü unter Session > Set Working Directory > Choose Directory... festlegen. Wie der Begriff "Session" schon andeutet, handelt es sich hierbei ebenfalls um eine temporäre Einstellung, die mit dem Beenden der Sitzung zurückgenommen wird.
 
@@ -138,12 +136,13 @@ Die Werte und Variablen finden sich auch in RStudio im Fenster "Environment". Do
 ## Skripte einlesen, Editor und Konsole
 Wir werden in diesem Tutorial viel mit vorbereiteten R-SKripten arbeiten. Das sind einfache Programme mit Erklärungen, die dann in R ausgeführt werden.
 
-Deshalb trennen wir in RStudio die **Konsole** vom **Editor**. In der Regel schreiben wir den Code im Editor und führen die Befehle dann mithilfe der Konsole aus. Das Skript im Editor lässt sich so einfach speichern und zu einem späteren Zeitpunkt wieder verwenden.
+Deshalb trennen wir in RStudio die **Konsole** vom **Editor**. In der Regel schreiben wir den Code im Editor und führen die Befehle dann mithilfe der Konsole aus. Das Skript im Editor lässt sich so einfach speichern und zu einem späteren Zeitpunkt wieder verwenden. Beim Speichern muss u.U. „UTF-8“ ausgewählt werden.
 
 ![Editor und Konsole](Link zum Bild)
 
 Konsole | Editor
 ------ | -------
+![Konsole](/00_images/konsole.png) | ![Editor](/00_images/editor2.png)
 Konsole führt Zeile aus | Eingabe von Code/Laden von Skripten
 Befehle können entweder direkt oder über den Editor eingegeben werden | Code-Zeilen werden durch den "run" Befehl gestartet
 | Letzter Befehl wird durch CTRL/Command + Pfeil auf erneut aufgerufen.
