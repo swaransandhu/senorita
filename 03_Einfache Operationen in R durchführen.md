@@ -138,8 +138,6 @@ Wir werden in diesem Tutorial viel mit vorbereiteten R-SKripten arbeiten. Das si
 
 Deshalb trennen wir in RStudio die **Konsole** vom **Editor**. In der Regel schreiben wir den Code im Editor und führen die Befehle dann mithilfe der Konsole aus. Das Skript im Editor lässt sich so einfach speichern und zu einem späteren Zeitpunkt wieder verwenden. Beim Speichern muss u.U. „UTF-8“ ausgewählt werden.
 
-![Editor und Konsole](Link zum Bild)
-
 Konsole | Editor
 ------ | -------
 ![Konsole](/00_images/konsole.png) | ![Editor](/00_images/editor2.png)
