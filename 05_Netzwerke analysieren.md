@@ -131,7 +131,7 @@ Mit colours() lassen sich übrigens alle Farben anzeigen, die euch in R zur Verf
 
 `> plot(karate, vertex.color=vcol, edge.color=ecol) # wichtig ist, dass sich die Visualisierung auf die zuvor angelegten Visualisierungsparameter beziehen.
 
-![Visualisierung der direkten Kanten von Mr. Hi](Link zum Bild)
+![Visualisierung der direkten Kanten von Mr. Hi](/00_images/Mrhi.png)
 
 ## Teilnetzwerke bilden
 In vielen Fällen ist es sinnvoll, bestimmte Untergruppen aus einem Gesamtnetzwerk isoliert anzuschauen. Diese Untergruppen lassen sich leicht mit dem Befehl **subgraph()** herausarbeiten. Wir arbeiten hier wieder mit dem Zachary-Karate Netzwerk.
@@ -159,13 +159,13 @@ Es gibt aber noch einen anderen Weg, um das Netzwerk zu reduzieren. Wir wollen j
 
 `> plot(karate2, layout = layout_with_kk, main = "induced.subgraph")`
 
-![Vergleich der Netzwerke](Link zum Bild)
+![Vergleich der Netzwerke](/00_images/subgraph.png)
 
 Die Abbildung bestätigt, dass beides Mal das gleiche Netzwerk um Mr. Hi isoliert wurde. Zur besseren Vergleichbarkeit sind die beiden Netzwerke mit dem Kamada-Kawai Algorithmus visualisiert ("layout_with_kk"), der den Knoten einen festen Punkt zuweist und sich so gut für den Vergleich von Netzwerken und Teilnetzwerken eignet.
 
 **Übung**: Vergleichen Sie jetzt die Untergruppen Faction 1 und Faction 2 in einem Netzwerk. Das Ergebnis sollte so aussehen... Am einfachsten funktioniert dies mit dem Befehl "delete_vertices". Sie können das Skript von oben entsprechend anpassen.
 
-![Zwei Fraktionen](Link zum Bild)
+![Zwei Fraktionen](/00_images/faction.png)
 
 ### Teilnetzwerke nach Kantengewichten isolieren
 Das gleiche lässt sich auch für die Kanten in einem Netzwerk machen. Beispielsweise wollen wir nur Kanten mit einem Gewicht > 4 in dem Netzwerk behalten. Dazu verwenden wir den Befehl [subgraph.edges](http://igraph.org/r/doc/subgraph.html) und entsprechende logische Operatoren.
@@ -245,7 +245,7 @@ Ihre Abbildung wurde jetzt mit dem Fruchterman-Rheingold Algorithmus visualisier
 
 Man erkennt dabei auf den ersten Blick, dass das Netzwerk **in zwei miteinander nicht verbundene Komoponenten** zerfällt.
 
-![Beispielnetzwerk Semester](Link zum Bild)
+![Beispielnetzwerk Semester](/00_images/Semester.png)
 
 ### Analyse vom Komponenten
 Für die Analyse von Komponenten des Netzwerks verwenden wir den Befehl [components](http://igraph.org/r/doc/components.html).
@@ -301,7 +301,7 @@ Cluster sind Gruppen von Knoten, die über ähnliche Eigenschaften verfügen. Es
 
 Im Beispiel sieht man sehr schön, wie sich die Communities im Hilfesuch-Netzwerk unterteilen (Waktrap-Algorithmus).
 
-![Walktrap Algorithmus](Link zum Bild)
+![Walktrap Algorithmus](/00_images/Communities.png)
 
 Vertiefende Anmerung: Es gibt noch eine Reihe anderer Berechnungen für Communities und Cluster, aber für den ersten Überblick hat sich der Walktrap-Algorithmus bewährt.
 
