@@ -14,6 +14,7 @@ Um die Dichte eines Netzwerks „network“ zu berechnen, gibt man den folgenden
 Dabei sollte man aufpassen, dass das Netzwerk, das man als Argument in der Klammer benennt, weder mehrfache Beziehungen zwischen den Knoten hat, noch zulässt, dass ein Knoten eine Beziehung zu sich selbst führen kann. Dies könnte dazu führen, dass Werte über 100% angezeigt werden und die Dichte damit verfälscht wäre. Falls das untersuchte Netzwerk jedoch mehrfache und selbstreferenzielle Beziehungen mit einschließt, kann man zur Untersuchung der Dichte einfach eine simplifizierte Version des Basisnetzwerks anfertigen:
 
 `> simplenetwork <- simplify(network, remove.multiple = TRUE, remove.loops = TRUE)`
+
 `> edge_density(simplenetwork)`
 
 Es gibt die Möglichkeit, remove.multiple auf FALSE zu lassen, also nur die selbstreferenziellen Beziehungen durch das Argument remove.loops=TRUE auszublenden. Das kann je nach Forschungsfrage und beobachteter Beziehung bei gerichteten Netzwerken Sinn machen, etwa, wenn man den Austausch von Geld betrachtet. Hier können zwischen jedem Knoten zwei Beziehungen liegen, also gibt es maximal x(x-1) mögliche Kanten. R nimmt als 100%-Wert jedoch immer die maximal möglichen Kanten eines ungerichteten Netzwerks als Referenz. Die Dichte, die man bei einem gerichteten Netzwerk mit der Möglichkeit zweier Kanten zwischen Knoten anzeigen lassen kann, muss demnach auf 200% referenziert werden.
