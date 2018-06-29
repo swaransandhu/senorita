@@ -13,8 +13,8 @@ Um die Dichte eines Netzwerks „network“ zu berechnen, gibt man den folgenden
 
 Dabei sollte man aufpassen, dass das Netzwerk, das man als Argument in der Klammer benennt, weder mehrfache Beziehungen zwischen den Knoten hat, noch zulässt, dass ein Knoten eine Beziehung zu sich selbst führen kann. Dies könnte dazu führen, dass Werte über 100% angezeigt werden und die Dichte damit verfälscht wäre. Falls das untersuchte Netzwerk jedoch mehrfache und selbstreferenzielle Beziehungen mit einschließt, kann man zur Untersuchung der Dichte einfach eine simplifizierte Version des Basisnetzwerks anfertigen:
 
-`> simplenetwork <- simplify(network, remove.multiple = TRUE, remove.loops = TRUE)
-> edge_density(simplenetwork)`
+`> simplenetwork <- simplify(network, remove.multiple = TRUE, remove.loops = TRUE)`
+`> edge_density(simplenetwork)`
 
 Es gibt die Möglichkeit, remove.multiple auf FALSE zu lassen, also nur die selbstreferenziellen Beziehungen durch das Argument remove.loops=TRUE auszublenden. Das kann je nach Forschungsfrage und beobachteter Beziehung bei gerichteten Netzwerken Sinn machen, etwa, wenn man den Austausch von Geld betrachtet. Hier können zwischen jedem Knoten zwei Beziehungen liegen, also gibt es maximal x(x-1) mögliche Kanten. R nimmt als 100%-Wert jedoch immer die maximal möglichen Kanten eines ungerichteten Netzwerks als Referenz. Die Dichte, die man bei einem gerichteten Netzwerk mit der Möglichkeit zweier Kanten zwischen Knoten anzeigen lassen kann, muss demnach auf 200% referenziert werden.
 
@@ -65,9 +65,9 @@ Möchte man die mittlere Pfaddistanz berechnen, also die Anzahl der Pfade, die m
 
 Diese Befehle gelten allgemein für alle Netzwerke, wobei die Berechnung der Pfaddistanz logischer und einfacher zu handhaben ist, wenn man ein ungerichtetes Netzwerk analysiert. Hier können Kanten einfach „abgelaufen“ werden, während man bei gerichteten Netzwerken eigentlich noch beachten müsste, in welche Richtungen die Kanten zeigen. Dies kann man jedoch ebenfalls in die Befehle integrieren:
 
-`> mean_distance(network, directed = FALSE) # Nutzt man diesen Befehl bei gerichteten Netzwerken, werden die Kanten wie ungerichtete Kanten behandelt.
+`> mean_distance(network, directed = FALSE) # Nutzt man diesen Befehl bei gerichteten Netzwerken, werden die Kanten wie ungerichtete Kanten behandelt.`
 
-> mean_distance(network, directed = TRUE) # Nutzt man diesen Befehl bei gerichteten Netzwerken, werden die Kanten wie gerichtete Kanten behandelt.`
+`> mean_distance(network, directed = TRUE) # Nutzt man diesen Befehl bei gerichteten Netzwerken, werden die Kanten wie gerichtete Kanten behandelt.`
 
 Welche Art und Weise der Berechnung Sinn macht, ist wie immer abhängig von der Forschungsfrage und den abhängigen Variablen, die man untersuchen will. 
 
@@ -101,9 +101,9 @@ Wenn Sie sich die Degrees für die Knoten eines Netzwerks ausgeben möchten, so 
 
 Sie erhalten eine Liste der Knoten und die Anzahl ihrer Beziehungen. Sie können auch nur die In- oder Outdegrees anzeigen lassen, was nur bei einem gerichteten Netzwerk sinnvoll ist.
 
-`> degree(network, mode="in") # Zeigt nur die Anzahl der Indegrees an
+`> degree(network, mode="in") # Zeigt nur die Anzahl der Indegrees an`
 
-> degree(network, mode="out") # Zeigt nur die Anzahl der Outdegrees an`
+`> degree(network, mode="out") # Zeigt nur die Anzahl der Outdegrees an`
 
 Die absoluten Zahlen sagen uns aber noch nicht viel. Deshalb können die Degrees normalisiert werden. Dabei werden sie durch alle möglichen Degrees des Graphs geteilt. Gerade bei großen Netzwerken ist eine Normalisierung/Indexierung wichtig, damit die Degrees vergleichbar werden.
 
@@ -111,9 +111,9 @@ Die absoluten Zahlen sagen uns aber noch nicht viel. Deshalb können die Degrees
 
 Auch bei der Spezifizierung auf In- und Outdegrees können die Werte normalisiert werden:
 
-`> degree(network, mode="in", normalized=TRUE)
+`> degree(network, mode="in", normalized=TRUE)`
 
-> degree(network, mode="out", normalized=TRUE)`
+`> degree(network, mode="out", normalized=TRUE)`
 
 Das Degree-Maß kann dafür verwendet werden, die Größe der Knoten anzupassen. Knoten, die zentraler sind als andere, werden dementsprechend größer dargestellt. Dieses Attribut findet sich im Argument des Plot-Befehls wieder.
 
