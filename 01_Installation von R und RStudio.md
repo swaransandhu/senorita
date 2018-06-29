@@ -1,32 +1,36 @@
 # Installation von R und RStudio
-In Lektion 1 lernen Sie, wie Sie R und RStudio auf Ihrem Laptop/PC installieren.
-## Warum muss ich mit R und RStudio arbeiten?
-Der Umgang mit komplexen Daten wird für Journalisten und Öffentlichkeitsarbeiter immer wichtiger. Je stärker die Digitalisierung in Kommunikationsprozesse eingreift, desto mehr Daten werden generiert, die ausgewertet werden können.
-Es gibt derzeit viele Möglichkeiten, Daten auszuwerten. Das Angebot ist inzwischen unübersichtlich, die klassischen Anbieter sind SPSS, Matlab und Stata. Allerdings sind die Lizenzen für kommerzielle Software sehr teuer. Deshalb steigen immer mehr Hochschulen, aber auch Agenturen und Unternehmen, auf nicht-kommerziellen Lösungen um. R wird inzwischen auch verstärkt an deutschsprachigen Hochschulen und Universitäten als Standard-Paket für die sozialwissenschaftliche Datenanalyse eingesetzt [(Why learn R?)](http://www.northeastern.edu/levelblog/2016/05/17/why-learn-r/).
+In Lektion 1 lernen Sie, wie Sie *R* und *RStudio* auf ihrem Laptop/PC installieren.
 
-Mit R erhalten Sie Zugang zu einem Werkzeugkasten der Datenanalyse und -visualisierung, den Sie im Lehrforschungsprojekt aber auch in der Bachelor-Arbeit gut einsetzen können.
+**Warum muss ich mit *R* und *RStudio* arbeiten?**
+
+Der Umgang mit komplexen Daten wird für Journalisten und Öffentlichkeitsarbeiter immer wichtiger. Je stärker die Digitalisierung in Kommunikationsprozesse eingreift, desto mehr Daten werden generiert, die ausgewertet werden können.
+
+Es gibt derzeit viele Möglichkeiten, Daten auszuwerten. Das Angebot ist inzwischen unübersichtlich, die klassischen Anbieter sind *SPSS*, *Matlab* und *Stata*. Allerdings sind die Lizenzen für kommerzielle Software sehr teuer. Deshalb steigen immer mehr Hochschulen, aber auch Agenturen und Unternehmen, auf nicht-kommerzielle Lösungen um. *R* wird inzwischen auch verstärkt an deutschsprachigen Hochschulen und Universitäten als Standard-Paket für die sozialwissenschaftliche Datenanalyse eingesetzt [(Why learn R?)](http://www.northeastern.edu/levelblog/2016/05/17/why-learn-r/).
+
+Mit *R* erhalten Sie Zugang zu einem Werkzeugkasten der Datenanalyse und -visualisierung, den Sie im Lehrforschungsprojekt aber auch in der Bachelor-Arbeit gut einsetzen können.
 
 ## Installation von R
-R lässt sich auf der Seite R-Project.org herunterladen. In der Regel wird die letzte stabile Version für Ihr Betriebssystem automatisch angezeigt. Achten Sie bitte darauf, dass Sie die aktuelle Version installieren.
+*R* lässt sich auf der Seite *R-Project.org* herunterladen. In der Regel wird die letzte stabile Version für Ihr Betriebssystem automatisch angezeigt. Achten Sie bitte darauf, dass Sie die aktuelle Version installieren.
 
-Das R-Projekt ist in sogenannten CRANs abgelegt. Das sind Archive, die auf Servern liegen. Nutzen Sie den [CRAN-Server der Universität Münster](https://cran.uni-muenster.de/), um R zu installieren und wählen Sie das richtige Paket für Ihr Betriebssystem aus.
+Das *R*-Projekt ist in sogenannten *CRANs* abgelegt. Das sind Archive, die auf Servern liegen. Nutzen Sie den [*CRAN*-Server der Universität Münster](https://cran.uni-muenster.de/), um *R* zu installieren und wählen Sie das richtige Paket für Ihr Betriebssystem aus.
 
-Mac: Laden Sie das aktuelle .pkg herunter und installieren es per Doppelklick im Verzeichnis Programme.
+*Mac*: Laden Sie das aktuelle .pkg herunter und installieren es per Doppelklick im Verzeichnis Programme.
 
-Windows: Laden Sie die aktuelle "base" Installation *.exe herunter und starten Sie den Installer per Doppelklick.
+*Windows*: Laden Sie die aktuelle "base" Installation .exe herunter und starten Sie den Installer per Doppelklick. 
 
-Testen Sie, ob R auf Ihrem System läuft, indem Sie das Programm mit einem Doppelklick starten. Das gilt für Mac sowie für Windows. Sie sollten dann die R-Konsole als Kommandozeile sehen, wie der untenstehende Screenshot anzeigt.
+Testen Sie, ob *R* auf Ihrem System läuft, indem Sie das Programm mit einem Doppelklick starten. Das gilt für *Mac* sowie für *Windows*. Sie sollten dann die *R*-Konsole als Kommandozeile sehen, wie der untenstehende Screenshot anzeigt.
 
 ![R Konsole](/00_images/RKonsole.png)
 
 Testen Sie die Installation, indem Sie "version" in die Kommandozeile eingeben und Enter drücken. Sie erhalten dann einen Output über die aktuell installierte Version.
 
 ## R und die Kommadozeile
-Die erste Begegnung mit R kann etwas verwirrend sein, da R ein Kommandozeilen-Programm ist. Das heißt, dass es keine bunten Icons oder eine grafische Oberfläche gibt, auf die man klicken kann (wie in MS-Office), sondern jeder Befehl manuell als Textbefehl eingegeben werden muss. Grafische Oberflächen führen diese Befehle für den Nutzer automatisch im Hintergrund aus. Dabei kann man nur schwer durchschauen, was ein Klick auf die Schaltfläche nun genau auslöst. Mit einem Kommandozeilen-Programm wie R hat man also theoretisch gesehen eine viel genauere Kontrolle über das, was man gerade bearbeitet.
+Die erste Begegnung mit *R* kann etwas verwirrend sein, da *R* ein Kommandozeilen-Programm ist. Das heißt, dass es keine bunten Icons oder eine grafische Oberfläche gibt, auf die man klicken kann (wie in *MS-Office*), sondern jeder Befehl manuell als Textbefehl eingegeben werden muss. Grafische Oberflächen führen diese Befehle für den Nutzer automatisch im Hintergrund aus. Dabei kann man nur schwer durchschauen, was ein Klick auf die Schaltfläche nun genau auslöst. Mit einem Kommandozeilen-Programm wie *R* hat man also theoretisch gesehen eine viel genauere Kontrolle über das, was man gerade bearbeitet.
 
-Auch unter Windows (ausführen > cmd.exe) und Mac (Terminal) kann mit Kommandozeilen gearbeitet werden. Linux ist ohnehin Kommandozeilen-basiert.
+Auch unter *Windows* (ausführen > cmd.exe) und *Mac* (Terminal) kann mit Kommandozeilen gearbeitet werden. *Linux* ist ohnehin Kommandozeilen-basiert.
 
-### Syntax-Konventionen bei R
+**Syntax-Konventionen bei *R***
+
 **#** erläutert eine Code-Zeile und entspricht damit dem Kommentar. Zeilen, die mit der Raute beginnen, werden nicht ausgfeührt.
 
 **>** ist das Eingabefeld für den Code. Achten Sie darauf, dass Sie den Code genauso eingeben, wie er angegeben ist.
@@ -35,13 +39,16 @@ Auch unter Windows (ausführen > cmd.exe) und Mac (Terminal) kann mit Kommandoze
 
 Befehle werden mit **Enter** ausgeführt.
 
-### Vorteile eines Kommandozeilen-basierten Programms wie R:
+**Vorteile eines Kommandozeilen-basierten Programms wie *R*:**
+
 + komplette Kontrolle über alle Befehle
 
 + Nachvollziehbarkeit der Befehlskette
 
 + leichteres Erkennen von Fehlern
-### Nachteile eines Kommandozeile-basierten Programms wie R:
+
+**Nachteile eines Kommandozeile-basierten Programms wie *R*:**
+
 + Einarbeitung notwendig
 
 + Befehle und Syntax müssen erlernt werden
