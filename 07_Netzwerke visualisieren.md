@@ -25,15 +25,15 @@ Wenn Sie die Labels ganz ausschalten möchten, setzen sie vertex.label gleich NA
 
 Natürlich kann man sämtliche Bausteine des Netzwerks anders färben. Dazu lassen wir uns erst einmal alle Farben anzeigen, die R zur Verfügung stellt. Natürlich können die Farben auch als Hex angegeben werden.
 
-`> colours() # Zeigt alle verfügbaren Farben an.
+`> colours() # Zeigt alle verfügbaren Farben an.`
 
-> plot(network, vertex.color="pink2") # Färbt die Knoten mit der Farbe pink2.`
+`> plot(network, vertex.color="pink2") # Färbt die Knoten mit der Farbe pink2.`
 
 Auch der Knotenrahmen kann gefärbt oder gar ausgeblendet werden.
 
-`> plot(network, vertex.frame.color="red3") # Färbt den Knotenrahmen in red3.
+`> plot(network, vertex.frame.color="red3") # Färbt den Knotenrahmen in red3.`
 
-> plot(network, vertex.frame.color="transparent") # Macht den Knotenrahmen transparent.`
+`> plot(network, vertex.frame.color="transparent") # Macht den Knotenrahmen transparent.`
 
 Auch die Kanten können eingefärbt werden.
 
@@ -43,7 +43,7 @@ Sie können veranlassen, dass die Labels in serifenloser Schrift angezeigt und e
 
 `> plot(network, vertex.label.family = "Helvetica")
 
-> plot(network, vertex.label.color = "magenta3") # Färbt die Labels in magenta3.`
+`> plot(network, vertex.label.color = "magenta3") # Färbt die Labels in magenta3.`
 
 Man kann ebenfalls die Labels etwas weiter von den Knoten darstellen. Dabei erhöht man die Vertex-Label-Distanz.
 
@@ -103,23 +103,23 @@ Jetzt können Sie im plot-Befehl nicht nur das Layout gleich coords setzen, sond
 #### Das Paket visNetwork nutzen
 Es gibt ein Paket, mit dem man Netzwerke viel schöner darstellen lassen kann als mit dem plot-Befehl. Es eignet sich damit gut, um Visualisierungen für Präsentationen oder ähnliches anzufertigen. Ein großer Nachteil gegenüber dem plot-Befehl liegt jedoch darin, dass ein visNetwork-Netzwerk nicht als PDF exportiert werden kann. Dementsprechend müssen Sie das Netzwerk im Zoom-Fenster screenshotten. Die Qualität bleibt dabei jedoch gut, weshalb sich ein Blick auf visNetwork auf jeden Fall lohnt. Zunächst sollten Sie das Paket installieren und laden.
 
-`> install.packages("visNetwork", dependencies=TRUE)
+`> install.packages("visNetwork", dependencies=TRUE)`
 
-> library(visNetwork)`
+`> library(visNetwork)`
 
 Sie werden für die Visualisierung den Befehl visIgraph nutzen. Wie der Name vermuten lässt, benötigen Sie auch hier ein igraph-Objekt. Das haben Sie jedoch, wenn Sie igraph und den plot-Befehl nutzen, eh im Vorhinein. Vorab können Sie das Aussehen der Knoten und Kanten definieren. Achten Sie darauf, dass visNetwork nicht die Farben kennt, die Ihnen R mit colours() zur Verfügung stellt. Geben Sie daher lieber Hexadezimalzahlen  an.
 
-`> E(network)$arrow.size <- 0.1 # Die Pfeilspitzengröße bei gerichteten Netzwerken.
+`> E(network)$arrow.size <- 0.1 # Die Pfeilspitzengröße bei gerichteten Netzwerken.`
 
-> E(network)$color <- "lightgrey" # Die Farbe der Kanten.
+`> E(network)$color <- "lightgrey" # Die Farbe der Kanten.`
 
-> V(network)$color <- "pink" # Die Farbe der Knoten.
+`> V(network)$color <- "pink" # Die Farbe der Knoten.`
 
-> V(network)$size <- 10 # Die Größe der Knoten.
+`> V(network)$size <- 10 # Die Größe der Knoten.`
 
-> V(network)$frame.color <- "transparent" # Der Rahmen der Knoten.
+`> V(network)$frame.color <- "transparent" # Der Rahmen der Knoten.`
 
-> V(network)$label.color <- "black" # Die Farbe der Labels.`
+`> V(network)$label.color <- "black" # Die Farbe der Labels.`
 
 Danach plotten Sie das Netzwerk mit dem Befehl visIgraph. All ihre vorab festgelegten Einstellungen werden erkannt und übernommen. Das Argument type ist in der Default-Version auf nicely gesetzt. Mit full sorgen Sie dafür, dass das Netzwerk das gesamte Fenster einnimmt.
 
@@ -162,17 +162,17 @@ Der Befehl visualisiert jetzt das Netzwerk ohne labels, aber mit den einfachen H
 ## Beispiel: Visualisierung Zachary's Karateclub
 Rufen wir uns zunächst Zachary's Netzwerk nochmals in Erinnerung:
 
-`> library(igraphdata)
+`> library(igraphdata)`
 
-> data(karate)
+`> data(karate)`
 
-> plot(karate)`
+`> plot(karate)`
 
 Wir sehen im Reiter plots, dass das Netzwerk bereits nach dem Vertex Attribut "Faction" farbig codiert ist. Überprüfen kann man dies, indem man sich die Ausprägungen der Attribute "color" und "Faction" anzeigen lässt.
 
-`> vertex_attr(karate, "color")
+`> vertex_attr(karate, "color")`
 
-> vertex_attr(karate, "Faction")`
+`> vertex_attr(karate, "Faction")`
 
 Wir sehen, dass die beiden Attribute identisch sind. "color" wird für die Visualisierung automatisch ausgelesen. Wir löschen jetzt das Attribut "color" aus dem Datensatz und schreiben das Ergebnis in ein neues Netzwerk karate_new
 
@@ -180,35 +180,35 @@ Wir sehen, dass die beiden Attribute identisch sind. "color" wird für die Visua
 
 Wir wollen jetzt den Datensatz neu einfärben. Faction 1 (um John A) soll die Farbe grün erhalten und Faction 2 (um Mr Hi) die Farbe rot.
 
-`> farbe <- c("red", "green") # Wir legen jetzt eine Farbskala an, die genau zwei Farben umfasst
+`> farbe <- c("red", "green") # Wir legen jetzt eine Farbskala an, die genau zwei Farben umfasst`
 
-> V(karate_new)$color <- farbe[V(karate_new)$Faction] # Diese Farbskala wenden wir auf die Funktion color an und zwar für die Spalte Faction
+`> V(karate_new)$color <- farbe[V(karate_new)$Faction] # Diese Farbskala wenden wir auf die Funktion color an und zwar für die Spalte Faction`
 
-> plot(karate_new)`
+`> plot(karate_new)`
 
 Wir können jetzt einfach die Farben im Vektor "farbe" austauschen, probieren Sie das einfach mal aus:
 
-`> farbe <- c("gold", "lightgreen")
+`> farbe <- c("gold", "lightgreen")`
 
-> V(karate_new)$color <- farbe[V(karate_new)$Faction]
+`> V(karate_new)$color <- farbe[V(karate_new)$Faction]`
 
-> plot(karate_new)`
+`> plot(karate_new)`
 
 Wir haben bereits gelernt, wie wir die Größe der Knoten in Relation zu den Degrees setzen können:
 
-`> farbe <- c("gold", "lightgreen")
+`> farbe <- c("gold", "lightgreen")`
 
-> V(karate_new)$color <- farbe[V(karate_new)$Faction]
+`> V(karate_new)$color <- farbe[V(karate_new)$Faction]`
 
-> plot(karate_new, vertex.size=degree(karate), vertex.label=NA)`
+`> plot(karate_new, vertex.size=degree(karate), vertex.label=NA)`
 
 Achtung: es gibt den Befehl degree() mehrmals in R. Achten Sie darauf, dass Sie den Befehl aus dem igraph Paket verwenden. Wenn das Paket SNA noch geladen ist, kommt das zu Konflikten. Sie können das SNA Paket wieder aus dem Programmspeicher löschen: detach("package:sna", unload=TRUE)
 
-`> deg <- degree(karate, mode="all") # Berechnet das Degree-Maß von allen Knoten
+`> deg <- degree(karate, mode="all") # Berechnet das Degree-Maß von allen Knoten`
 
-> V(karate)$size <- deg # Weist dem Vektor Size die Berechnung des Degree-Maßes zu
+`> V(karate)$size <- deg # Weist dem Vektor Size die Berechnung des Degree-Maßes zu`
 
-> plot(karate, vertex.size=deg)`
+`> plot(karate, vertex.size=deg)`
 
 Als weitere Darstellung können wir die Stärke der Kanten visualisieren. Dazu benötigen wir einen Vektor, der die Kantenstärke erfasst. Prüfen wir vorher noch schnell, wie sich das Kantenattribut weight verhält:
 
@@ -218,7 +218,7 @@ Die Kantenstärke von 78 Kanten reicht von 1 bis maximal 7. Damit diese etwas ü
 
 `> E(karate_new)$width <- E(karate_new)$weight/2
 
-> plot(karate_new)
+`> plot(karate_new)
 
 ## Quellen
 
