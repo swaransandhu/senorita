@@ -49,33 +49,34 @@ Befehle werden mit **Enter** ausgeführt.
 
 **Nachteile eines Kommandozeile-basierten Programms wie *R*:**
 
-* Einarbeitung notwendig
++ Einarbeitung notwendig
 
 + Befehle und Syntax müssen erlernt werden
 
 ## Installation von RStudio
-Sämtliche Aufgaben rund um Ihr Netzwerkprojekt können theoretisch nur mithilfe von R durchgeführt werden. Wie jedoch schon erläutert wurde, besitzt R keine grafische Oberfläche, um Ihnen die Bedienung des Programms zu erleichtern.
+Sämtliche Aufgaben rund um Ihr Netzwerkprojekt können theoretisch nur mithilfe von *R* durchgeführt werden. Wie jedoch schon erläutert wurde, besitzt *R* keine grafische Oberfläche, um Ihnen die Bedienung des Programms zu erleichtern.
 
-Vergleichen Sie dies mit Ihrem Wissen aus der Vorlesung Web Development: Stellen Sie sich vor, Sie müssten Ihre Hausarbeiten in HTML-Dokumenten anstatt in Word schreiben. Statt ein Wort einfach mit einem einfachen Klick als Überschrift zu formatieren, müssten Sie es mühselig mit `<h1>Wort</h1>` markieren etc.
+Vergleichen Sie dies mit Ihrem Wissen aus der Vorlesung *Web Development*: Stellen Sie sich vor, Sie müssten Ihre Hausarbeiten in HTML-Dokumenten anstatt in *Word* schreiben. Statt ein Wort einfach mit einem einfachen Klick als Überschrift zu formatieren, müssten Sie es mühselig mit `<h1>Wort</h1>` markieren etc.
 
-Ähnlich verhält es sich mit R und RStudio, der grafischen Oberfläche für R. Sie bietet eine einfachere Verwendung und Darstellung des Kommandozeilen-Programms und erleichtert Ihnen den Einstieg. Dabei verwendet RStudio das Programm R als Basis. Nur das Programm R zu öffnen, ist also während Ihres Projekts nicht nötig, aber selbstverständlich möglich, falls Sie die grafische Oberfläche nicht als Hilfe nutzen möchten.
+Ähnlich verhält es sich mit *R* und *RStudio*, der grafischen Oberfläche für *R*. Sie bietet eine einfachere Verwendung und Darstellung des Kommandozeilen-Programms und erleichtert Ihnen den Einstieg. Dabei verwendet *RStudio* das Programm *R* als Basis. Nur das Programm *R* zu öffnen, ist also während Ihres Projekts nicht nötig, aber selbstverständlich möglich, falls Sie die grafische Oberfläche nicht als Hilfe nutzen möchten.
 
-### Installation
-Da R die Basis der Oberfläche RStudio darstellt, muss R bereits installiert und auf seine Funktionstüchtigkeit getestet sein, bevor Sie RStudio installieren.
+**Installation**
 
-Die Installation ist ganz einfach. Gehen Sie auf [RStudio](https://www.rstudio.com/), wählen Sie "Products" und laden die kostenlose Desktop-Version für Ihr Betriebssystem herunter. Starten Sie das Programm wie gewohnt unter Programme per Doppelklick auf RStudio.
+Da *R* die Basis der Oberfläche *RStudio* darstellt, muss *R* bereits installiert und auf seine Funktionstüchtigkeit getestet sein, bevor Sie *RStudio* installieren.
+
+Die Installation ist ganz einfach. Gehen Sie auf [*RStudio*](https://www.rstudio.com/), wählen Sie „Products“ und laden die kostenlose Desktop-Version für Ihr Betriebssystem herunter. Starten Sie das Programm wie gewohnt unter Programme per Doppelklick auf *RStudio*.
 
 ## Aufbau von RStudio
-RStudio ist einfach aufgebaut und liefert viele individuell anpassbare Möglichkeiten. Wir bleiben hier bei der Standard-Ansicht:
+*RStudio* ist einfach aufgebaut und liefert viele individuell anpassbare Möglichkeiten. Wir bleiben hier bei der Standard-Ansicht:
 
 ![Standard-Ansicht](/00_images/Aufbau.png)
 
-Die Software ist in vier Fenster aufgeteilt, die wiederum eigene Reiter haben können. Die Reihenfolge der Fenster und der Reiter kann unter "View" geändert werden.
+Die Software ist in vier Fenster aufgeteilt, die wiederum eigene Reiter haben können. Die Reihenfolge der Fenster und der Reiter kann unter „View“ geändert werden.
 
-**Links unten** ist das wichtigste Fenster, die Konsole ("Console"). Sie entspricht der direkten Eingabe des Codes in R.
+**Links unten** ist das wichtigste Fenster, die Konsole („Console“). Sie entspricht der direkten Eingabe des Codes in *R*.
 
-Das Fenster **links oben** zeit die Ergebnisse des Outputs an. Wenn ein Befehl bestimmte Daten liefert, sind diese dort sichtbar. Auch, wenn Sie ein Skript in RStudio laden, wird es in diesem Fenster angezeigt. Wenn Sie das Programm neu öffnen, es keinen Output gibt und auch kein Skript geladen wurde, ist das Fenster oben links zunächst leer. In diesem Fall wird Ihnen die Konsole vergrößert angezeigt.
+Das Fenster **links oben** zeit die Ergebnisse des Outputs an. Wenn ein Befehl bestimmte Daten liefert, sind diese dort sichtbar. Auch, wenn Sie ein Skript in *RStudio* laden, wird es in diesem Fenster angezeigt. Wenn Sie das Programm neu öffnen, es keinen Output gibt und auch kein Skript geladen wurde, ist das Fenster oben links zunächst leer. In diesem Fall wird Ihnen die Konsole vergrößert angezeigt.
 
-**Rechts oben** ist die Arbeitsumgebung für R abgelegt. Dort geben Sie an, mit welchen Verzeichnissen Sie arbeiten.
+**Rechts oben** ist die Arbeitsumgebung für *R* abgelegt. Dort geben Sie an, mit welchen Verzeichnissen Sie arbeiten.
 
 **Rechts unten** ist ein Fenster mit mehreren wichtigen Reitern. **Files** sind die Dateien, mit denen Sie arbeiten, **Plots** sind Visualisierungen des Datensatzes und **Packages** sind Software-Pakete, die Sie installieren und de-installieren können.
