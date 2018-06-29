@@ -49,7 +49,7 @@ Befehle werden mit **Enter** ausgeführt.
 
 **Nachteile eines Kommandozeile-basierten Programms wie *R*:**
 
-+ Einarbeitung notwendig
+* Einarbeitung notwendig
 
 + Befehle und Syntax müssen erlernt werden
 
