@@ -147,10 +147,10 @@ Der K-Core kann mithilfe dieses Befehls berechnet werden:
 `> coreness(network)`
 
 ## Quellen
-Fuhse, J. A. (2016). Soziale Netzwerke: Konzepte und Forschungsmethoden. Konstanz u. München: UVK Verlagsgesellschaft.
+Fuhse, J. A. (2016). *Soziale Netzwerke: Konzepte und Forschungsmethoden*. Konstanz u. München: UVK Verlagsgesellschaft.
 
 IBM Corporation. (2017). Zentralität und Zentralitätsmaße. Abgerufen von https://www.ibm.com/support/knowledgecenter/de/SSXVXZ_2.1.8/com.ibm.i2.anb.doc/sna_centrality.html
 
-Luke, D. A. (2015). A User's Guide to Network Analysis in R. Wiesbaden: Springer VS.
+Luke, D. A. (2015). *A User's Guide to Network Analysis in R*. Wiesbaden: Springer VS.
 
-Sakschewski, T. (o.J.). Zentralität und Prestige. Abgerufen von http://www.wissensstrukturplan.de/wissensstrukturplan/glossar/z_zentralitaet.php
+Sakschewski, T. (o.J.). *Zentralität und Prestige*. Abgerufen von http://www.wissensstrukturplan.de/wissensstrukturplan/glossar/z_zentralitaet.php
