@@ -34,3 +34,43 @@ Nun passiert es, wie gesagt, ziemlich häufig, dass bei der Ausführung des letz
 Der untere Satz ist für uns von Bedeutung. Er sagt aus, dass es zwischen der Edge- und Nodelist Ungereimtheiten gibt. Um genau zu sein, gibt es Akteure in der *from*- und *to*-Spalte der Edgelist, die in der *id*-Spalte der Nodelist nicht vorkommen oder andersherum. In den Akteursspalten der Edgelist dürfen nämlich nur genau die Namen eingetragen werden, die genauso in der *id*-Spalte stehen – nicht mehr und nicht weniger und vor allem nicht falsch geschrieben. Dazu gehören leider auch unsichtbare Fehler wie Leerzeichen am Ende der Begriffe. Nun muss man sich an die Arbeit machen und die Daten bereinigen. Es lohnt sich, erst einmal zu überprüfen, wie viele Akteure in der Nodelist stehen und ob deren Bezeichnungen Leerzeichen beinhalten. Dann können alle Eintragungen der *id*-, *from*- und *to*-Spalte in eine eigene Tabellenspalte untereinander eingesetzt und alphabetisch sortiert werden. Jetzt wird jeder Begriffsblock auf Fehler untersucht. Diese können dann in den Listen verbessert werden. Wurden alle Blöcke durchsucht, können die Listen wieder als .csv-Dateien heruntergeladen und in *R* implementiert werden. Das wird so lange gemacht, bis kein Fehler mehr angezeigt wird und das *igraph*-Objekt oscar erfolgreich erstellt werden kann.
 
 Manchmal kann es auch passieren, dass Sie durch die Erhebung am Ende oder am Rand der Tabellen noch Eintragungen haben, die Sie eigentlich löschen wollten. Auch das kann dazu führen, dass Ihre Daten nicht richtig eingelesen werden können. Achten Sie am besten von Anfang an darauf, sauber zu erheben.
+
+## Übertragung der Daten in R
+Die finale Edgelist und die dazugehörige Nodelist liegen nun auf *GitHub* und können von dort bequem in *R* eingelesen werden. Dazu erstellen wir ein Skript und schreiben die folgenden Befehle hinein, die wir im letzten Kapitel bereits ähnlich gesehen haben:
+
+`> oscared <- read.csv("https://raw.githubusercontent.com/SabethHdM/senorita/patch-2/skripte/oscared.csv", header=T, as.is=T, sep=",")`
+
+`> oscarnod <- read.csv("https://raw.githubusercontent.com/SabethHdM/senorita/patch-2/skripte/oscarnod.csv", header=T, as.is=T, sep=",")`
+
+`> oscared <- as.matrix(oscared)`
+
+`> oscar <- graph_from_data_frame(d=oscared, vertices=oscarnod, directed=F)`
+
+Wir haben nun unser finales *igraph*-Objekt oscar, das wir uns in der Konsole auch gleich einmal genauer anschauen:
+
+`> oscar`
+
+
+Wir erhalten das folgende Ergebnis.
+
+![Edgelist Oscar](/00_images/oscar.png)
+
+Bei oscar handelt es sich also um ein ungerichtetes, gewichtetes, bi-partites Netzwerk mit 262 namentlich benannten Knoten und 516 Kanten. Es gibt vier Knotenattribute, „name“, „label“, „type“ und „sex“. Es gibt lediglich ein Kantenattribut, „weight“. Zudem werden uns die ersten Zeilen der Edgelist angezeigt. Auffällig ist, dass das Attribut „weight“ mit einem „c“ gekennzeichnet wurde. Das bedeutet, dass das Gewicht mit characters, also Buchstaben angegeben wurde. Wenn wir das Attribut mit dem folgenden Befehl aufrufen, können wir diesen Umstand genauer unter die Lupe nehmen:
+
+`> edge_attr(oscar)`
+
+Wir sehen nur Zahlen. Auch nach einer schnellen Prüfung in unserer *Google Tabelle* fällt uns kein Fehler auf. An dieser Stelle kann erst einmal entschieden werden, dass dies das Projekt beziehungsweise die Daten nicht wirklich beeinflusst oder gefährdet. Das Sortieren und Unterscheiden nach den jeweiligen Gewichts-Ausprägungen sollte trotz allem funktionieren.
+
+Wir können das Netzwerk kurz plotten, um einen ersten Eindruck von oscar zu erhalten:
+
+> plot(oscar)
+
+![Edgelist Oscar](/00_images/oscarplot.png)
+
+Hier muss eindeutig noch eine Menge getan werden, damit das Netzwerk anschaulich wird.
+
+## Berechnung relevanter Maßen
+
+## Visualisierung
+
+## Interpretation der Daten und Ausblick
