@@ -250,4 +250,4 @@ Damit auch sichtbar wird, dass sich das Netzwerk tatsächlich unterscheidet, las
 
 Sie haben gelernt, wie man einen selbst erhobenen Datensatz zunächst in ein einfaches edgelist-Format überträgt. In einem zweiten Schritt lässt sich diese Edgelist mit einer Nodelist verbinden. Die Verbindung mit einer Nodelist ist nicht immer erforderlich, liefert uns aber viel mehr Daten und Analysemöglichkeiten. Es ist deshalb notwendig, sich vor einer Erhebung zu überlegen, welche Daten relevant sind.
 
-[**R-Skript zum Wohlleben-Datensatz(Download)**](https://e-learning.hdm-stuttgart.de/moodle/pluginfile.php/131042/mod_book/chapter/183/Skript%20Wohlleben_Datensatz.R)
+[**R-Skript zum Wohlleben-Datensatz(Download)**](/skripte/Netzwerkdaten_laden_und_importieren-Wohlleben_Datensatz.R)
