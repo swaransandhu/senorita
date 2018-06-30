@@ -1,23 +1,25 @@
 # Netzwerkdaten laden bzw. importieren
 In Lektion 4 lernen Sie, bestehende Netzwerke zu laden bzw. eigene Netzwerkdaten zu importieren und exportieren.
+
 ## Vorhandene Daten in R verwenden
-R hat großartige Möglichkeiten, um schnell ein Netzwerk für Testzwecke zu generieren. Wir stellen hier nur einige Möglichkeiten vor.
+*R* hat großartige Möglichkeiten, um schnell ein Netzwerk für Testzwecke zu generieren. Wir stellen hier nur einige Möglichkeiten vor.
+
 ### Was ist ein igraph-Objekt?
-Wir verwenden für die Analyse und Visualisierung von Netzwerken vor allem das Paket igraph. Deshalb lernen Sie zunächst die Konventionen für das igraph-Objekt kennen. Ein **igraph-Objekt** ist ein spezielles Datenformat des igraph Pakets in R. Die Konvention des Pakets ist sehr einfach zu verstehen, da sie immer gleich aussieht.
+Wir verwenden für die Analyse und Visualisierung von Netzwerken vor allem das Paket *igraph*. Deshalb lernen Sie zunächst die Konventionen für das *igraph*-Objekt kennen. Ein ***igraph*-Objekt** ist ein spezielles Datenformat des *igraph*-Pakets in *R*. Die Konvention des Pakets ist sehr einfach zu verstehen, da sie immer gleich aussieht.
 
-`> library(igraph) # lädt das igraph Paket`
+`> library(igraph) # lädt das *igraph*-Paket`
 
-`> library(igraphdata) # lädt das igraphdata Paket`
+`> library(igraphdata) # lädt das *igraphdata*-Paket`
 
 `> data(package="igraphdata") # Inhalt des Pakets in der Übersicht`
 
 `> data(karate) # lädt den Datensatz karate`
 
-`> ?karate # Infos über den Datensatz karate unter dem Reiter "help"`
+`> ?karate # Infos über den Datensatz karate unter dem Reiter „help“`
 
-`> karate # ruft das igraph-Datenset karate auf`
+`> karate # ruft das *igraph*-Datenset karate auf`
 
-Wenn der Datensatz karate erfolgreich als igraph Datensatz geladen wurde, erscheint in der Konsole eine Zusammenfassung der Daten:
+Wenn der Datensatz karate erfolgreich als *igraph*-Datensatz geladen wurde, erscheint in der Konsole eine Zusammenfassung der Daten:
 
 `> IGRAPH 4b458a1 UNW- 34 78 -- Zachary's karate club network
 + attr: name (g/c), Citation (g/c), Author (g/c), Faction (v/n), name (v/c), label
@@ -32,14 +34,15 @@ Wenn der Datensatz karate erfolgreich als igraph Datensatz geladen wurde, ersche
 [31] Actor 3--Actor 29 Actor 3--Actor 33 Actor 4--Actor 8  Actor 4--Actor 13 Actor 4--Actor 14
 + ... omitted several edges`
 
-Jedes igraph-Objekt ist genau gleich aufgebaut:
+Jedes *igraph*-Objekt ist genau gleich aufgebaut:
 
-* **IGRAPH** zeigt an, dass es sich um ein Objekt der Klasse "igraph" handelt und beschreibt die intern vergebene Nummer des igraph-Objekts. Diese unterscheidet sich jedes Mal beim Laden, da der Datensatz neu geladen wird.
+* **IGRAPH** zeigt an, dass es sich um ein Objekt der Klasse „igraph“ handelt und beschreibt die intern vergebene Nummer des *igraph*-Objekts. Diese unterscheidet sich jedes Mal beim Laden, da der Datensatz neu geladen wird.
 * Die **vierstellige Buchstabenfolge** danach ist wie folgt codiert:
   1. **Art des Netzwerks**: **U** = undirected (ungerichtet), **D** = directed (gerichtet)
-  2. **Bezeichnung der Knoten**: **N** = named, dazu muss ein Vertex-Attribut "name" vorliegen
+  2. **Bezeichnung der Knoten**: **N** = named, dazu muss ein Vertex-Attribut „name“ vorliegen
   3. **Gewicht**: **W** = weighted network, d.h. die Edgelist ist mit einem numerischen Wert gewichtet
-  4. **Two-Mode-Netzwerk**: **B** = bi-partite (oder two-mode Netzwerk), wenn das Vertex-Attribut "type" vorhanden ist. Fehlt eine Codierung, wird dies einfach mit einem "–" angezeigt.
+  4. **Two-Mode-Netzwerk**: **B** = bi-partite (oder two-mode Netzwerk), wenn das Vertex-Attribut „type“ vorhanden ist. Fehlt eine Codierung, wird dies einfach mit einem „–“ angezeigt.
+  
 * Im Falle des karate Datensatzes haben wir es also mit einem ungerichteten, aber klar identifizierbaren und gewichteten one-mode Netzwerk zu tun.
 * Die Zahlenfolge nach der Codierung gibt die Zahl der Knoten und Edges an, in diesem Fall **34 Knoten mit insgesamt 78 Edges**.
 * Danach folgt die Nennung der im Graphen angelegten Attribute. Diese entsprechen in der Regel der Bezeichnung der Spalten im Header und werden genauso übernommen. Hinter jedem Attribut steht eine Klammer, die die Art des Attributs genauer beschreibt, etwa (v/n): Die **erste Nennung** vor dem Trennstrich bezieht sich auf die Ebene des Attributs:
@@ -47,13 +50,13 @@ Jedes igraph-Objekt ist genau gleich aufgebaut:
   * **v** meint, dass sich das Attribut auf die vertices oder Knoten bezieht
   * **e** meint, dass sich das Attribut auf die edges oder Kanten bezieht
   
-Beispielsweise beziehen sich die Graph-Attribute "name", "Citation" und "Author" ausschließlich auf den gesamten Graphen, während die Vertex-Attribute "Faction", "name", "label" und "color" sich auf die einzelnen vertices/Knoten beziehen. Es gibt im Datensatz nur ein edge-Attribut, nämlich das Gewicht ("weight").
+Beispielsweise beziehen sich die Graph-Attribute „name“, „Citation“ und „Author“ ausschließlich auf den gesamten Graphen, während die Vertex-Attribute „Faction“, „name“, „label“ und „color“ sich auf die einzelnen vertices/Knoten beziehen. Es gibt im Datensatz nur ein edge-Attribut, nämlich das Gewicht („weight“).
 
-Die **zweite Nennung** in der Klammer gibt an, wie die Werte des Attributs codiert sind, in der Regel sind dies **c** für characters, also Text, und **n** für numerische Werte, also Zahlen. Beispielsweise hat der Datensatz numerische Werte nur bei den Attributen Faction, color und weight.
+Die **zweite Nennung** in der Klammer gibt an, wie die Werte des Attributs codiert sind, in der Regel sind dies **c** für characters, also Text, und **n** für numerische Werte, also Zahlen. Beispielsweise hat der Datensatz numerische Werte nur bei den Attributen „Faction“, „color“ und „weight“.
 
 Nach diesem Überblick zeigt die Zusammenfassung exemplarisch die Struktur des Netzwerks an.
 
-Das [R Skript zum Laden des Datensatzes karate](https://e-learning.hdm-stuttgart.de/moodle/pluginfile.php/131042/mod_book/chapter/195/226305%20R%20Skript%20igraphdata%20karate%20laden.r) können Sie hier herunterladen.
+Das [*R*-Skript zum Laden des Datensatzes karate](https://e-learning.hdm-stuttgart.de/moodle/pluginfile.php/131042/mod_book/chapter/195/226305%20R%20Skript%20igraphdata%20karate%20laden.r) können Sie hier herunterladen.
 
 ### Zufällige Netzwerke generieren
 Mit R lassen sich einfach und schnell beispielhafte Netzwerke erstellen, um z.B. Visualisierungen oder Berechnungen zu üben. Diese unterscheiden sich in der Art und Weise der Netzwerkdaten:
