@@ -1,33 +1,34 @@
 # Netzwerke analysieren
 In Lektion 5 lernen Sie, wie man Netzwerke für die Analyse vorbereitet.
+
 ## Einführung Zachary Datensatz
-Wir arbeiten zunächst mit dem Zachary Datensatz: karate, der bereits im igraphdata Paket hinterlegt ist. Er muss also nicht eingelesen werden, sondern kann direkt aufgerufen werden.
+Wir arbeiten zunächst mit dem Zachary Datensatz karate, der bereits im *igraphdata*-Paket hinterlegt ist. Er muss also nicht eingelesen werden, sondern kann direkt aufgerufen werden.
 
-`> library(igraph) # lädt das igraph Paket`
+`> library(igraph) # lädt das *igraph*-Paket`
 
-`> library(igraphdata) # lädt die Datensätze aus dem igraphdata Paket`
+`> library(igraphdata) # lädt die Datensätze aus dem *igraphdata*-Paket`
 
 `> data(karate) # lädt den Datensatz karate`
 
-`> karate # zeigt das igraph Objekt karate an`
+`> karate # zeigt das *igraph*-Objekt karate an`
 
 `> ?karate # liefert Hintergrundinformationen zum Datensatz`
 
 `> plot(karate) # liefert eine erste Visualisierung`
 
-Wie bei allen Netzwerken ist es wichtig, den Hintergrund des Datensatzes zu verstehen:
+Seit der *igraph*-Version 1.1.3 lässt sich alternativ der Datensatz auch bequem über den Befehl make_graph laden!
 
-`> # seit der igraph Version 1.1.3 lässt sich alternativ der Datensatz auch bequem über den Befehl make_graph laden!`
+`> library(igraph) # lädt das *igraph*-Paket`
 
-`> library(igraph) # lädt das igraph Paket`
-
-`> z <- make_graph("Zachary") # lädt den gleichen Datensatz wie oben (also Variable z)`
+`> z <- make_graph("Zachary") # lädt den gleichen Datensatz wie oben`
 
 `plot(z) # kleine Visualisierung`
 
-### Eine kleine Geschichte von Zachary's Karate Club (1977)
+Wie bei allen Netzwerken ist es wichtig, den Hintergrund des Datensatzes zu verstehen.
 
-Wayne Zachary ist Anthropologe und interessierte sich für den Zusammenhalt in kleinen Gruppen. Für seinen 1977 publizierten Aufsatz: **An Information Flow Model for Conflict and Fission in Small Groups ([PDF](http://www1.ind.ku.dk/complexLearning/zachary1977.pdf)) hat er über den Zeitraum von drei Jahren (1970 bis 1972) den Karate-Club einer Universität untersucht. Innerhalb des Clubs gibt es einen schwelenden Konflikt zwischen dem Teilzeit-Karatelehrer "Mr. Hi" und dem Präsident des Clubs, "John A.". Beispielsweise will Mr. Hi die Preise für seine Stunden selbst festlegen, während der Präsident daran interessiert ist, die Kosten für die Mitglieder möglichst gering zu halten.
+**Eine kleine Geschichte von Zachary's Karate Club (1977)**
+
+Wayne Zachary ist Anthropologe und interessierte sich für den Zusammenhalt in kleinen Gruppen. Für seinen 1977 publizierten Aufsatz: *An Information Flow Model for Conflict and Fission in Small Groups* ([PDF](http://www1.ind.ku.dk/complexLearning/zachary1977.pdf)) hat er über den Zeitraum von drei Jahren (1970 bis 1972) den Karate-Club einer Universität untersucht. Innerhalb des Clubs gibt es einen schwelenden Konflikt zwischen dem Teilzeit-Karatelehrer „Mr. Hi“ und dem Präsident des Clubs, „John A.“. Beispielsweise will Mr. Hi die Preise für seine Stunden selbst festlegen, während der Präsident daran interessiert ist, die Kosten für die Mitglieder möglichst gering zu halten.
 
 Im Laufe der Zeit wurde aus dieser eher kleinen Angelegenheit eine ideologische Kampflinie. Für die eine Gruppe war Mr. Hi ein weiser Mentor und eine Vaterfigur, der sich um seine Schüler kümmert. Für die Anhänger des Präsidenten war Mr. Hi ein Angestellter, der versucht, höhere Preise auf dem Rücken aller Mitglieder zu erlangen.
 
@@ -47,6 +48,7 @@ Zachary wollte herausfinden, wie es zu diesem Bruch kommen konnte. Deshalb hat e
 Diese Interaktionsräume wurden nun in einer Skala addiert: Je mehr Interaktionen stattfinden, desto höher ist die Wahrscheinlichkeit für eine Freundschaft.
 
 Quelle: Zachary, W.W. (1977): An information flow model for conflict an fission in small groups. Journal of Anthropological Research 33, 452-473. https://www.jstor.org/stable/3629752
+
 ## Knoten und Kantenattribute einsetzen
 Um die Attribute in einem igraph Objekt besser zu verstehen, verwenden wir die Befehle **V()** für Vertex-Attribute und **E()** für Edge-Attribute.
 
@@ -60,13 +62,13 @@ Mit dem **§** Attribut wird ausgewählt, welches Attribut angezeigt werden soll
 
 `> V(karate)$name`
 
-Mit V(karate)$name werden alle Vertex-Attribute aus dem Feld "**name**" ausgelesen. Dabei wird deutlich, dass bis auf Mr. Hi und John A alle Akteure anonymisiert sind.
+Mit V(karate)$name werden alle Vertex-Attribute aus dem Feld „**name**“ ausgelesen. Dabei wird deutlich, dass bis auf Mr. Hi und John A alle Akteure anonymisiert sind.
 
 Das Attribut **faction** gibt an, wer sich nach dem Bruch welcher Fraktion zugeordnet hat. Es ist ein numerisches Attribut, deshalb ist es als /n angegeben und nimmt den Wert 1 oder 2 an. 1 ist die Fraktion um John A, 2 ist die Fraktion um den Karate Trainer Mr. Hi.
 
 **Label** ist ein Vertex-Attribut, das im Gegensatz zur ID jedem Knoten eine Bezeichnung zuweist. Das ist vor allem für eine schöne Visualisierung hilfreich.
 
-**Color** entspricht dem Vertex-Attribut der Faction. Es dient dazu, dass die Knoten eindeutig eingefärbt werden können. Das ist dann sinnvoll, wenn man diese Eigenschaft weiter manipulieren möchte. Die Werte sind allerdings mit denen des Attributs "Faction" identisch.
+**Color** entspricht dem Vertex-Attribut der Faction. Es dient dazu, dass die Knoten eindeutig eingefärbt werden können. Das ist dann sinnvoll, wenn man diese Eigenschaft weiter manipulieren möchte. Die Werte sind allerdings mit denen des Attributs „Faction“ identisch.
 
 Das Edge-Attribut **weight** gibt das Gewicht der 78 Beziehungen an und ist ein numerisches Attribut, das von 1 bis maximal 7 reicht. Je höher die Zahl ausfällt, desto mehr überlappende Interaktionsmöglichkeiten gab es zwischen den beiden Akteuren.
 
@@ -99,13 +101,13 @@ Zudem lassen sich einzelne Knoten herausgreifen:
 
 Wir haben jetzt den Knoten mit dem Label "H" der Variable mrhi zugewiesen. Damit lassen sich einzelne Knoten, aber auch Gruppen, basierend auf einem Attributswert zusammenfassen.
 
-Wir können jetzt fragen, welche Knoten um Mr. Hi herum angesiedelt sind. Dazu verwenden wir den Befehl "adj" für adjacent. Dieser bezieht sich auf die Kanten des Netzwerks karate.
+Wir können jetzt fragen, welche Knoten um Mr. Hi herum angesiedelt sind. Dazu verwenden wir den Befehl „adj“ für adjacent. Dieser bezieht sich auf die Kanten des Netzwerks karate.
 
 `> E(karate)[ adj(mrhi) ]`
 
-Dazu wird ein Vektor E aus den Edges des Datensatzes karate erzeugt, die direkt an mrhi anschließen. Mit dem igraph Skript sieht man, dass 16 von 78 Beziehungen direkt am Mr Hi angrenzen.
+Dazu wird ein Vektor E aus den Edges des Datensatzes karate erzeugt, die direkt an mrhi anschließen. Mit dem *igraph*-Skript sieht man, dass 16 von 78 Beziehungen direkt am Mr Hi angrenzen.
 
-Einfacher ist es, mit dem Befehl "**incident()**" einen einzelnen Knoten ins Zentrum der Analyse zu stellen und andere auszublenden. incident() für einen Knoten oder incident_edges() für mehrere Knoten selektiert jede Kante, die mit einem Knoten V verbunden ist. Achtung: Damit werden keine Teilnetzwerke erstellt, sondern nur die Werte für einzelne Knoten berechnet.
+Einfacher ist es, mit dem Befehl „**incident()**“ einen einzelnen Knoten ins Zentrum der Analyse zu stellen und andere auszublenden. incident() für einen Knoten oder incident_edges() für mehrere Knoten selektiert jede Kante, die mit einem Knoten V verbunden ist. Achtung: Damit werden keine Teilnetzwerke erstellt, sondern nur die Werte für einzelne Knoten berechnet.
 
 `> hi <- incident(karate, V(karate)[name == "Mr Hi"], mode = "all")`
 
@@ -113,13 +115,13 @@ Einfacher ist es, mit dem Befehl "**incident()**" einen einzelnen Knoten ins Zen
 
 Wir sehen: Das Ergebnis ist das gleiche wie im ersten Verfahren, aber die Analyse ist deutlich einfacher und schneller.
 
-### Hervorhebung eines einzelnen Knotens in der Visualisierung
+**Hervorhebung eines einzelnen Knotens in der Visualisierung**
 
-Damit ein Knoten und seine direkt verbundenen Kanten visualisiert und damit hervorgehoben werden können, sind einige einfache Schritte in R notwendig. Das untenstehende Skript zeigt, wie das am Beispiel von Mr. Hi funktioniert.
+Damit ein Knoten und seine direkt verbundenen Kanten visualisiert und damit hervorgehoben werden können, sind einige einfache Schritte in *R* notwendig. Das untenstehende Skript zeigt, wie das am Beispiel von Mr. Hi funktioniert.
 
 `> ecol <- rep("grey80", ecount(karate)) # alle Kanten in Grauton 80% Deckung`
 
-`> ecol(hi) <- "orange" # alle Kanten von "Mr Hi" in orange`
+`> ecol(hi) <- "orange" # alle Kanten von „Mr Hi“ in orange`
 
 `> vcol <- rep("grey40", vcount(karate)) # alle Knoten in Grauton 40% Deckung`
 
@@ -127,16 +129,16 @@ Damit ein Knoten und seine direkt verbundenen Kanten visualisiert und damit herv
 
 `> V(karate)$label <- NA # optional blenden wir damit die labels der Knoten aus`
 
-Mit colours() lassen sich übrigens alle Farben anzeigen, die euch in R zur Verfügung stehen.
+Mit colours() lassen sich übrigens alle Farben anzeigen, die euch in *R* zur Verfügung stehen.
 
-`> plot(karate, vertex.color=vcol, edge.color=ecol) # wichtig ist, dass sich die Visualisierung auf die zuvor angelegten Visualisierungsparameter beziehen.
+`> plot(karate, vertex.color=vcol, edge.color=ecol) # wichtig ist, dass sich die Visualisierung auf die zuvor angelegten Visualisierungsparameter beziehen.`
 
 ![Visualisierung der direkten Kanten von Mr. Hi](/00_images/Mrhi.png)
 
 ## Teilnetzwerke bilden
 In vielen Fällen ist es sinnvoll, bestimmte Untergruppen aus einem Gesamtnetzwerk isoliert anzuschauen. Diese Untergruppen lassen sich leicht mit dem Befehl **subgraph()** herausarbeiten. Wir arbeiten hier wieder mit dem Zachary-Karate Netzwerk.
 
-Wir wollen jetzt aus unserem Karate Netzwerk nur die Gruppe mit der **Faction = 1** behalten. Wir können dazu entweder die Knoten, bei denen das Attribut Faction den Wert 1 annimmt, behalten oder alle anderen Knoten, die nicht der Faction 1 angehören, löschen. Mit dem logischen Operator "!" kann man definieren, dass etwas ungleich x ist. 2 != 1 bedeutet z.B., dass 2 ungleich 1 ist. Wenn wir also bestimmen wollen, dass alle Knoten, deren Attribut Faction **nicht** den Wert 1 annimmt, gelöscht werden sollen, setzen wir das Attribut Faction ungleich 1. Dazu müssen wir einen neuen Subgraphen anlegen:
+Wir wollen jetzt aus unserem Karate Netzwerk nur die Gruppe mit der **Faction = 1** behalten. Wir können dazu entweder die Knoten, bei denen das Attribut Faction den Wert 1 annimmt, behalten oder alle anderen Knoten, die nicht der Faction 1 angehören, löschen. Mit dem logischen Operator „!“ kann man definieren, dass etwas ungleich x ist. 2 != 1 bedeutet z.B., dass 2 ungleich 1 ist. Wenn wir also bestimmen wollen, dass alle Knoten, deren Attribut Faction **nicht** den Wert 1 annimmt, gelöscht werden sollen, setzen wir das Attribut Faction ungleich 1. Dazu müssen wir einen neuen Subgraphen anlegen:
 
 `> karate1 <- delete_vertices(karate, V(karate)[Faction != "1"])`
 
@@ -150,7 +152,8 @@ Es gibt aber noch einen anderen Weg, um das Netzwerk zu reduzieren. Wir wollen j
 
 `> plot(karate2)`
 
-### Vergleich der beiden Netzwerke karate1 und karate2
+**Vergleich der beiden Netzwerke karate1 und karate2**
+
 `> dev.off() # schaltet vorhergehende Befehle aus`
 
 `> par(mfrow=c(1,2)) # gibt vor, dass zwei Abbildungen in einer Zeile gezeigt werden sollen`
@@ -161,13 +164,14 @@ Es gibt aber noch einen anderen Weg, um das Netzwerk zu reduzieren. Wir wollen j
 
 ![Vergleich der Netzwerke](/00_images/subgraph.png)
 
-Die Abbildung bestätigt, dass beides Mal das gleiche Netzwerk um Mr. Hi isoliert wurde. Zur besseren Vergleichbarkeit sind die beiden Netzwerke mit dem Kamada-Kawai Algorithmus visualisiert ("layout_with_kk"), der den Knoten einen festen Punkt zuweist und sich so gut für den Vergleich von Netzwerken und Teilnetzwerken eignet.
+Die Abbildung bestätigt, dass beides Mal das gleiche Netzwerk um Mr. Hi isoliert wurde. Zur besseren Vergleichbarkeit sind die beiden Netzwerke mit dem Kamada-Kawai Algorithmus visualisiert („layout_with_kk“), der den Knoten einen festen Punkt zuweist und sich so gut für den Vergleich von Netzwerken und Teilnetzwerken eignet.
 
-**Übung**: Vergleichen Sie jetzt die Untergruppen Faction 1 und Faction 2 in einem Netzwerk. Das Ergebnis sollte so aussehen... Am einfachsten funktioniert dies mit dem Befehl "delete_vertices". Sie können das Skript von oben entsprechend anpassen.
+**Übung**: Vergleichen Sie jetzt die Untergruppen Faction 1 und Faction 2 in einem Netzwerk. Das Ergebnis sollte so aussehen... Am einfachsten funktioniert dies mit dem Befehl „delete_vertices“. Sie können das Skript von oben entsprechend anpassen.
 
 ![Zwei Fraktionen](/00_images/faction.png)
 
-### Teilnetzwerke nach Kantengewichten isolieren
+**Teilnetzwerke nach Kantengewichten isolieren**
+
 Das gleiche lässt sich auch für die Kanten in einem Netzwerk machen. Beispielsweise wollen wir nur Kanten mit einem Gewicht > 4 in dem Netzwerk behalten. Dazu verwenden wir den Befehl [subgraph.edges](http://igraph.org/r/doc/subgraph.html) und entsprechende logische Operatoren.
 
 `> karate4 <- subgraph.edges(karate, E(karate)[weight > 4]) # zeigt nur Kanten mit einem Gewicht größer 4 an`
@@ -184,7 +188,8 @@ Natürlich lassen sich die Variablen in allen Beispielen entsprechend anpassen, 
 
 Hier ist es wichtig, sich die Gruppe, die besonders interessant ist, logisch abzuleiten. Manchmal ist es z.B. einfacher, alle Attributswerte zu löschen, die **nicht** zutreffen, um eine bestimmte Gruppe zu isolieren.
 
-### Auflösung Faction 1 und Faction 2
+**Auflösung Faction 1 und Faction 2**
+
 `> karate1 <- delete_vertices(karate, V(karate)[Faction != "1"])`
 
 `> karate2 <- delete_vertices(karate, V(karate)[Faction == "1"])`
@@ -196,6 +201,7 @@ Hier ist es wichtig, sich die Gruppe, die besonders interessant ist, logisch abz
 `> plot(karate1, layout = layout_with_kk, main = "Faction 1")`
 
 `> plot(karate2, layout = layout_with_kk, main = "Faction 2")`
+
 ## Komponenten, Communities und Cluster
 Komponenten und Cluster haben auf den ersten Blick einen oberflächlichen Zusammenhang, weil sie etwas über die Zusammensetzung des Netzwerks aussagen.
 
@@ -205,11 +211,11 @@ Komponenten und Cluster haben auf den ersten Blick einen oberflächlichen Zusamm
 Components können also Cluster enthalten, aber nicht umgekehrt.
 
 ### Einlesen eines Beispieldatensatzes
-Schauen wir das an einem Beispiel an. Wir verwenden dafür das Beziehungsnetzwerk aus dem [Kurs](https://github.com/hdm-crpr/226305/tree/master/datasets/kurs). Wir nutzen die CSV Dateien ehelp und nodes. Die Links, mit denen wir mithilfe der unteren Befehle die Daten einlesen, generiert man, indem man auf die jeweilige Datei und dann auf "raw" drückt. Die angezeigte URL kann dann in den Befehl kopiert werden.
+Schauen wir das an einem Beispiel an. Wir verwenden dafür das Beziehungsnetzwerk aus dem [Kurs](https://github.com/hdm-crpr/226305/tree/master/datasets/kurs). Wir nutzen die CSV Dateien ehelp und nodes. Die Links, mit denen wir mithilfe der unteren Befehle die Daten einlesen, generiert man, indem man auf die jeweilige Datei und dann auf „raw“ drückt. Die angezeigte URL kann dann in den Befehl kopiert werden.
 
 `> library(igraph) # nicht vergessen!`
 
-`> # die Dateien werden direkt aus dem GitHubVerzeichnis gelesen`
+`> # die Dateien werden direkt aus dem *GitHub*-Verzeichnis gelesen`
 
 `> help <- read.csv("https://raw.githubusercontent.com/hdm-crpr-226305/master/datasets/kurs/ehelp.csv", header=T, as.is=T, sep=",")`
 
@@ -221,7 +227,7 @@ Schauen wir das an einem Beispiel an. Wir verwenden dafür das Beziehungsnetzwer
 
 `> head(nodes)`
 
-`> # wandelt die edgelist in eine Matrix um und baut das igraph Objekt in Verbindung mit der nodelist`
+`> # wandelt die edgelist in eine Matrix um und baut das *igraph*-Objekt in Verbindung mit der nodelist`
 
 `> hties <- as.matrix(help)`
 
@@ -233,7 +239,7 @@ Schauen wir das an einem Beispiel an. Wir verwenden dafür das Beziehungsnetzwer
 
 `> h <- simplify(held, edge.attr.comb=list(weight="sum"))`
 
-`> # ruft das finale igraph Objekt auf`
+`> # ruft das finale *igraph*-Objekt auf`
 
 `> h`
 
@@ -241,7 +247,7 @@ Schauen wir das an einem Beispiel an. Wir verwenden dafür das Beziehungsnetzwer
 
 `> plot(h, edge.arrow.size=0.2, edge.curved=0.2, layout=layout_with_fr, edge.width=E(h)$weight, main="Beispielnetzwerk Semester")`
 
-Ihre Abbildung wurde jetzt mit dem Fruchterman-Rheingold Algorithmus visualisiert. Beachten Sie, dass die Visualisierung bei diesem Algorithmus iterativ ist, d.h. die Abbildungen sehen sich ähnlich, aber jedes Mal unterschiedlich aus.
+Ihre Abbildung wurde jetzt mit dem Fruchterman-Rheingold-Algorithmus visualisiert. Beachten Sie, dass die Visualisierung bei diesem Algorithmus iterativ ist, d.h. die Abbildungen sehen sich ähnlich, aber jedes Mal unterschiedlich aus.
 
 Man erkennt dabei auf den ersten Blick, dass das Netzwerk **in zwei miteinander nicht verbundene Komoponenten** zerfällt.
 
@@ -289,7 +295,7 @@ Cluster sind Gruppen von Knoten, die über ähnliche Eigenschaften verfügen. Es
 
 `> plot(wc, k) # visualisiert die Communities`
 
-**Übung**: Analysieren Sie die Modularität und den Walktrap-Algorithmus des Semesternetzwerks:
+**Übung: Analysieren Sie die Modularität und den Walktrap-Algorithmus des Semesternetzwerks:**
 
 `> wch <- cluster_walktrap(h)`
 
@@ -297,13 +303,13 @@ Cluster sind Gruppen von Knoten, die über ähnliche Eigenschaften verfügen. Es
 
 `> membership(wch)`
 
-`> plot(wch, h, edge.arrow.size=0.1, main="Communities im Semester")
+`> plot(wch, h, edge.arrow.size=0.1, main="Communities im Semester")`
 
 Im Beispiel sieht man sehr schön, wie sich die Communities im Hilfesuch-Netzwerk unterteilen (Waktrap-Algorithmus).
 
 ![Walktrap Algorithmus](/00_images/Communities.png)
 
-Vertiefende Anmerung: Es gibt noch eine Reihe anderer Berechnungen für Communities und Cluster, aber für den ersten Überblick hat sich der Walktrap-Algorithmus bewährt.
+Vertiefende Anmerkung: Es gibt noch eine Reihe anderer Berechnungen für Communities und Cluster, aber für den ersten Überblick hat sich der Walktrap-Algorithmus bewährt.
 
 ## Dyaden und Triaden
 Dyaden und Triaden sind wichtige Beschreibungen des Aufbaus eines Netzwerks.
@@ -313,7 +319,7 @@ Dyaden und Triaden sind wichtige Beschreibungen des Aufbaus eines Netzwerks.
 
 `> dyad_census(z)`
 
-**Mutual**: Die Ausgabe berechnet die Anzahl der dyadischen Beziehungen in einem Netzwerk. Da das Karate Netzwerk ungerichtet ist, entspricht die Anzahl der gegenseitigen Beziehungen (mutual) genau der Anzahl der Edges im Netzwerk (lässt sich aus dem igraph-Objekt z auslesen).
+**Mutual**: Die Ausgabe berechnet die Anzahl der dyadischen Beziehungen in einem Netzwerk. Da das Karate Netzwerk ungerichtet ist, entspricht die Anzahl der gegenseitigen Beziehungen (mutual) genau der Anzahl der Edges im Netzwerk (lässt sich aus dem *igraph*-Objekt z auslesen).
 
 **Asymmetrische** Beziehungen sind nur in einem gerichteten Netzwerk relevant.
 
