@@ -21,18 +21,18 @@ Wir verwenden für die Analyse und Visualisierung von Netzwerken vor allem das P
 
 Wenn der Datensatz karate erfolgreich als *igraph*-Datensatz geladen wurde, erscheint in der Konsole eine Zusammenfassung der Daten:
 
-`> IGRAPH 4b458a1 UNW- 34 78 -- Zachary's karate club network
-+ attr: name (g/c), Citation (g/c), Author (g/c), Faction (v/n), name (v/c), label
-| (v/c), color (v/n), weight (e/n)
-+ edges from 4b458a1 (vertex names):
- [1] Mr Hi  --Actor 2  Mr Hi  --Actor 3  Mr Hi  --Actor 4  Mr Hi  --Actor 5  Mr Hi  --Actor 6 
- [6] Mr Hi  --Actor 7  Mr Hi  --Actor 8  Mr Hi  --Actor 9  Mr Hi  --Actor 11 Mr Hi  --Actor 12
-[11] Mr Hi  --Actor 13 Mr Hi  --Actor 14 Mr Hi  --Actor 18 Mr Hi  --Actor 20 Mr Hi  --Actor 22
-[16] Mr Hi  --Actor 32 Actor 2--Actor 3  Actor 2--Actor 4  Actor 2--Actor 8  Actor 2--Actor 14
-[21] Actor 2--Actor 18 Actor 2--Actor 20 Actor 2--Actor 22 Actor 2--Actor 31 Actor 3--Actor 4 
-[26] Actor 3--Actor 8  Actor 3--Actor 9  Actor 3--Actor 10 Actor 3--Actor 14 Actor 3--Actor 28
-[31] Actor 3--Actor 29 Actor 3--Actor 33 Actor 4--Actor 8  Actor 4--Actor 13 Actor 4--Actor 14
-+ ... omitted several edges`
+`> IGRAPH 4b458a1 UNW- 34 78 -- Zachary's karate club network`
+`+ attr: name (g/c), Citation (g/c), Author (g/c), Faction (v/n), name (v/c), label`
+`| (v/c), color (v/n), weight (e/n)`
+`+ edges from 4b458a1 (vertex names):`
+` [1] Mr Hi  --Actor 2  Mr Hi  --Actor 3  Mr Hi  --Actor 4  Mr Hi  --Actor 5  Mr Hi  --Actor 6 `
+` [6] Mr Hi  --Actor 7  Mr Hi  --Actor 8  Mr Hi  --Actor 9  Mr Hi  --Actor 11 Mr Hi  --Actor 12`
+`[11] Mr Hi  --Actor 13 Mr Hi  --Actor 14 Mr Hi  --Actor 18 Mr Hi  --Actor 20 Mr Hi  --Actor 22`
+`[16] Mr Hi  --Actor 32 Actor 2--Actor 3  Actor 2--Actor 4  Actor 2--Actor 8  Actor 2--Actor 14`
+`[21] Actor 2--Actor 18 Actor 2--Actor 20 Actor 2--Actor 22 Actor 2--Actor 31 Actor 3--Actor 4 `
+`[26] Actor 3--Actor 8  Actor 3--Actor 9  Actor 3--Actor 10 Actor 3--Actor 14 Actor 3--Actor 28`
+`[31] Actor 3--Actor 29 Actor 3--Actor 33 Actor 4--Actor 8  Actor 4--Actor 13 Actor 4--Actor 14`
+`+ ... omitted several edges`
 
 Jedes *igraph*-Objekt ist genau gleich aufgebaut:
 
