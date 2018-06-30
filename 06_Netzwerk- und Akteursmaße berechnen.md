@@ -7,17 +7,17 @@ Netzwerkmaße beziehen sich auf das gesamte Netzwerk. Die Maßangaben eignen sic
 ### Dichte
 In einem ungerichteten Netzwerk mit x Knoten können rein mathematisch maximal (x(x-1))/2 Kanten verlaufen. Zwischen fünf Personen können also beispielsweise maximal ((5(5-1)/2)=10 Kanten beobachtet werden. Die Dichte eines Netzwerks sagt aus, wie vieler dieser maximal möglichen Beziehungen realisiert sind – man berechnet also den Quotienten der tatsächlichen und maximalen Kanten. Wenn zwischen den fünf Knoten wirklich 10 Kanten verlaufen, ist die Dichte=10/10=1, also 100%. 
 
-Um die Dichte eines Netzwerks „network“ zu berechnen, gibt man den folgenden Befehl in R ein:
+Um die Dichte eines Netzwerks „network“ zu berechnen, gibt man den folgenden Befehl in *R* ein:
 
 `> edge_density(network)`
 
-Dabei sollte man aufpassen, dass das Netzwerk, das man als Argument in der Klammer benennt, weder mehrfache Beziehungen zwischen den Knoten hat, noch zulässt, dass ein Knoten eine Beziehung zu sich selbst führen kann. Dies könnte dazu führen, dass Werte über 100% angezeigt werden und die Dichte damit verfälscht wäre. Falls das untersuchte Netzwerk jedoch mehrfache und selbstreferenzielle Beziehungen mit einschließt, kann man zur Untersuchung der Dichte einfach eine simplifizierte Version des Basisnetzwerks anfertigen:
+Dabei sollte man aufpassen, dass das Netzwerk, das man als Objekt in der Klammer benennt, weder mehrfache Beziehungen zwischen den Knoten hat, noch zulässt, dass ein Knoten eine Beziehung zu sich selbst führen kann. Dies könnte dazu führen, dass Werte über 100% angezeigt werden und die Dichte damit verfälscht wäre. Falls das untersuchte Netzwerk jedoch mehrfache und selbstreferenzielle Beziehungen mit einschließt, kann man zur Untersuchung der Dichte einfach eine simplifizierte Version des Basisnetzwerks anfertigen:
 
 `> simplenetwork <- simplify(network, remove.multiple = TRUE, remove.loops = TRUE)`
 
 `> edge_density(simplenetwork)`
 
-Es gibt die Möglichkeit, remove.multiple auf FALSE zu lassen, also nur die selbstreferenziellen Beziehungen durch das Argument remove.loops=TRUE auszublenden. Das kann je nach Forschungsfrage und beobachteter Beziehung bei gerichteten Netzwerken Sinn machen, etwa, wenn man den Austausch von Geld betrachtet. Hier können zwischen jedem Knoten zwei Beziehungen liegen, also gibt es maximal x(x-1) mögliche Kanten. R nimmt als 100%-Wert jedoch immer die maximal möglichen Kanten eines ungerichteten Netzwerks als Referenz. Die Dichte, die man bei einem gerichteten Netzwerk mit der Möglichkeit zweier Kanten zwischen Knoten anzeigen lassen kann, muss demnach auf 200% referenziert werden.
+Es gibt die Möglichkeit, remove.multiple auf FALSE zu lassen, also nur die selbstreferenziellen Beziehungen durch das Argument remove.loops=TRUE auszublenden. Das kann je nach Forschungsfrage und beobachteter Beziehung bei gerichteten Netzwerken Sinn machen, etwa, wenn man den Austausch von Geld betrachtet. Hier können zwischen jedem Knoten zwei Beziehungen liegen, also gibt es maximal x(x-1) mögliche Kanten. *R* nimmt als 100%-Wert jedoch immer die maximal möglichen Kanten eines ungerichteten Netzwerks als Referenz. Die Dichte, die man bei einem gerichteten Netzwerk mit der Möglichkeit zweier Kanten zwischen Knoten anzeigen lassen kann, muss demnach auf 200% referenziert werden.
 
 ### Cliquen
 Der Begriff „Clique“ ist doppelt besetzt – zum einen bezeichnet er die perfekte Triaden-Form, zum anderen lässt er sich mit folgender Definition eingrenzen:
@@ -31,11 +31,11 @@ Demnach beschreibt der Begriff „Clique“ schlicht den Umstand, wenn zwischen 
 #### Die Clique als Triade „300“
 Eine Triade ist eine Netzwerkform, in der es drei Knoten gibt. Wenn zwischen diesen Knoten gerichtete Kanten bestehen, gibt es sechzehn mögliche Triaden-Konstellationen, die auftreten können. Jede hat einen eindeutigen Namen, jeweils symbolisiert durch einen dreistelligen Code und einem Buchstaben, falls der Code gleich ist, jedoch zwei unterschiedliche Konstellationen beschrieben werden. Die erste Ziffer des Codes beschreibt die Anzahl der reziproken, die zweite die der gerichteten und die dritte die der nicht-bestehenden Kanten innerhalb einer Triade (Fuhse, 2016, S. 70). Die Triade, in der keine Kante realisiert ist – in der zwischen den drei Knoten also keine Beziehung herrscht – hat die Codierung „003“. Die Clique, welche die perfekte Triade mit drei realisierten, reziproken Beziehungen beschreibt, hat die Codierung „300“.
 
-Mit R kann man den Triadenzensus durchführen, das bedeutet, dass man sich anzeigen lassen kann, welche Triaden-Konstellationen wie oft im Netzwerk auftreten. Der Befehl dafür heißt:
+Mit *R* kann man den Triadenzensus durchführen, das bedeutet, dass man sich anzeigen lassen kann, welche Triaden-Konstellationen wie oft im Netzwerk auftreten. Der Befehl dafür heißt:
 
 `> triad_census(network)`
 
-Ausgegeben werden sechzehn Lösungen, deren Reihenfolge im Paket igraph nachvollzogen werden kann. Wenn man im Reiter packages auf das Paket igraph klickt und den Befehl triad_census auswählt, werden die Triaden-Konstellationen angezeigt.
+Ausgegeben werden sechzehn Lösungen, deren Reihenfolge im Paket *igraph* nachvollzogen werden kann. Wenn man im Reiter packages auf das Paket igraph klickt und den Befehl triad_census auswählt, werden die Triaden-Konstellationen angezeigt.
 
 #### Die Clique als Sub-Netzwerk mit einer Dichte von 1
 Wenn man sich Cliquen mit einer bestimmten Anzahl von Knoten anzeigen lassen möchte, so verwendet man den folgenden Befehl:
@@ -52,7 +52,7 @@ Maximale Cliquen sind Cliquen, die nicht mehr zu einer größeren Clique erweite
 `> max_cliques(network)`
 
 ### Pfaddistanz
-Die „Pfaddistanz zwischen zwei Akteuren besteht aus der Anzahl der (gerichteten) Verbindungen, über die ein Akteur im Netzwerk den zweiten Akteur erreichen kann“ (Fuhse, 2016, S. 61, Herv. i. Org.). Dabei gilt immer der kürzeste Weg zwischen den beiden Knoten und nicht etwa der maximal mögliche. Möchte man sich die Distanzen zwischen zwei Knoten anzeigen lassen, so nutzt man den folgenden Befehl:
+Die „**Pfaddistanz** zwischen zwei Akteuren besteht aus der Anzahl der (gerichteten) Verbindungen, über die ein Akteur im Netzwerk den zweiten Akteur erreichen kann“ (Fuhse, 2016, S. 61, Herv. i. Org.). Dabei gilt immer der kürzeste Weg zwischen den beiden Knoten und nicht etwa der maximal mögliche. Möchte man sich die Distanzen zwischen zwei Knoten anzeigen lassen, so nutzt man den folgenden Befehl:
 
 `> distances(network, v = V(network), to = V(network))`
 
@@ -87,14 +87,14 @@ Akteursmaße beziehen sich auf einzelne Akteure und deren Position im Netzwerk. 
 
 Die Zentralität eines Akteurs kann demnach nicht nur unterschiedlich definiert, sondern auch auf verschiedene Weisen berechnet werden. Dabei geht man jedoch stets von der Idee aus, dass manche Knoten eine wichtigere Position innerhalb des Netzwerks einnehmen als andere. Diese werden auch als periphere Knoten bezeichnet.
 
-Welchen Wert man zur Berechnung der Zentralität heranziehen möchte, leitet sich vor allem aus der Forschungsfrage, den inhaltlichen Gegebenheiten des Netzwerks und der Definition der Beziehungen ab. Im Nachstehenden sehen Sie eine kurze Übersicht über die Zentralitätsmaße und deren Befehle für die Pakete statnet und igraph (Luke 2015, S. 95), wobei wir im Seminar vorrangig mit igraph arbeiten.
+Welchen Wert man zur Berechnung der Zentralität heranziehen möchte, leitet sich vor allem aus der Forschungsfrage, den inhaltlichen Gegebenheiten des Netzwerks und der Definition der Beziehungen ab. Im Nachstehenden sehen Sie eine kurze Übersicht über die Zentralitätsmaße und deren Befehle für die Pakete *statnet* und *igraph* (Luke 2015, S. 95), wobei wir im Seminar vorrangig mit *igraph* arbeiten.
 
 ![Befehle für Akteursmaße](/00_images_Akteurbefehl.png)
 
-In den folgenden Unterkapiteln werden wir mehrere Zentralitätsmaße anschauen, darunter das Degree, die Betweenness, Closeness und den Eigenvektor.
+In den folgenden Unterkapiteln werden wir mehrere Zentralitätsmaße anschauen, darunter das Degree, die Betweenness, Closeness, den Eigenvektor und den K-Core.
 
 ### Degree
-Bei der Degree-Zentralität werden „die Verbindungen eines Knoten gezählt – Akteure mit vielen Sozialbeziehungen sind wichtiger im Netzwerk als solche mit wenigen“ (Fuhse, 2016, S. 59). Dabei unterscheidet man „zwischen der Anzahl der empfangenen Beziehungen (Indegree) und der der von einem Akteur an andere geschickten Beziehungen (Outdegree)“ (ebd., Herv. i. Org.).
+Bei der Degree-Zentralität werden „die Verbindungen eines Knoten gezählt – Akteure mit vielen Sozialbeziehungen sind wichtiger im Netzwerk als solche mit wenigen“ (Fuhse, 2016, S. 59). Dabei unterscheidet man „zwischen der Anzahl der empfangenen Beziehungen (**Indegree**) und der der von einem Akteur an andere geschickten Beziehungen (**Outdegree**)“ (ebd., Herv. i. Org.).
 
 Wenn Sie sich die Degrees für die Knoten eines Netzwerks ausgeben möchten, so wenden Sie den Befehl degree() auf Ihr Netzwerk an.
 
@@ -118,17 +118,17 @@ Auch bei der Spezifizierung auf In- und Outdegrees können die Werte normalisier
 
 Das Degree-Maß kann dafür verwendet werden, die Größe der Knoten anzupassen. Knoten, die zentraler sind als andere, werden dementsprechend größer dargestellt. Dieses Attribut findet sich im Argument des Plot-Befehls wieder.
 
-`> plot(network, vertex.size.degree(network)^2) # Visualisiert den Datensatz network basierend auf der Größe der Degrees von network. Das Ergebniss wird mit 2 potenziert, damit der Graph einfacher zu lesen ist. Alternativ kann die Größe auch über eine Skalierungsfunktion ausgegeben werden. Ideal für die Darstellung sind Werte zwischen 5 und 15.`
+`> plot(network, vertex.size.degree(network)^2) # Visualisiert den Datensatz network basierend auf der Größe der Degrees von network. Das Ergebnis wird mit 2 potenziert, damit der Graph einfacher zu lesen ist. Alternativ kann die Größe auch über eine Skalierungsfunktion ausgegeben werden. Ideal für die Darstellung sind Werte zwischen 5 und 15.`
 
 ### Betweenness
-„Die Betweenness-Zentralität eines Knotens steht für die Anzahl der kürzesten Pfade im Netzwerk, die über diesen Knoten laufen“ (Fuhse, 2016, S. 63). Das bedeutet umgangssprachlich, dass ein Knoten, über den man zwangsweise laufen muss, um seine Ziele zu erreichen, einen höheren Betweenness-Wert hat als andere. Stellen Sie sich beispielsweise ein Ego-Netzwerk vor, bei dem mehrere Knoten an das Ego geknüpft, diese jedoch untereinander nicht verbunden sind. Wollen Sie auf kürzestem Weg von einem Knoten zu einem anderen, müssen Sie über das Ego laufen. Die Berechnung der Betweenness-Zentralität ist damit – wie fast jedes Zentralitätsmaß – bei einem Ego-Netzwerk unsinnig, da das Ego allein durch die Struktur des Netzwerks die höchste Zentralität hat.
+„Die Betweenness-Zentralität eines Knotens steht für die Anzahl der kürzesten Pfade im Netzwerk, die über diesen Knoten laufen“ (Fuhse, 2016, S. 63). Das bedeutet umgangssprachlich, dass ein Knoten, über den man zwangsweise laufen muss, um seine Ziele zu erreichen, einen höheren Betweenness-Wert hat als andere. Stellen Sie sich beispielsweise ein Ego-Netzwerk vor, bei dem mehrere Knoten an das Ego geknüpft, diese jedoch untereinander nicht verbunden sind. Wollen Sie auf kürzestem Weg von einem Knoten zu einem anderen, **müssen** Sie über das Ego laufen. Die Berechnung der Betweenness-Zentralität ist damit – wie fast jedes Zentralitätsmaß – bei einem Ego-Netzwerk unsinnig, da das Ego allein durch die Struktur des Netzwerks die höchste Zentralität hat.
 
 Die Betweenness-Zentralität berechnet man für alle Knoten des Netzwerks mit:
 
 `> betweenness(network)`
 
 ### Closeness
-„Die Closeness-Zentralität misst die Anzahl der kürzesten Pfade (Beziehungen) von einem Akteur zu allen anderen Akteuren. Je größer die Closeness-Zentralität eines Akteurs ist, umso schneller kann er sämtliche direkten und indirekten Kontakte erreichen“ (Sakschewski, o.J., Abschnitt 6, Herv. i. Org.). Die Closeness berechnen sie mithilfe des folgenden Befehls für alle Knoten des Netzwerks:
+„Die **Closeness-Zentralität** misst die Anzahl der kürzesten Pfade (Beziehungen) von einem Akteur zu allen anderen Akteuren. Je größer die Closeness-Zentralität eines Akteurs ist, umso schneller kann er sämtliche direkten und indirekten Kontakte erreichen“ (Sakschewski, o.J., Abschnitt 6, Herv. i. Org.). Die Closeness berechnen sie mithilfe des folgenden Befehls für alle Knoten des Netzwerks:
 
 `> closeness(network)`
 
