@@ -181,7 +181,7 @@ Ralf Wohlleben gilt als ["Mastermind um den NSU"](https://www.tagesspiegel.de/po
 **Import von Daten aus einer Edgelist**
 
 Der Import von Daten in *R* ist einfach, wenn Sie einige Grundregeln beachten. Sichern Sie sich den Datensatz Wohlleben, bestehend aus einer [Edgelist](/skripte/wohl_edge.csv)
- und einer [Nodelist](/skripte/node_edge.csv) zunächst in Ihrem Working Directory. Mit dem Befehl „read.csv()“ können Sie dann die csv-Dateien einfach einlesen.
+ und einer [Nodelist](/skripte/wohl_node.csv) zunächst in Ihrem Working Directory. Mit dem Befehl „read.csv()“ können Sie dann die csv-Dateien einfach einlesen.
 
 1. Edgelist
 
