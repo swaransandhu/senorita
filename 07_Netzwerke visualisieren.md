@@ -1,14 +1,14 @@
 # Netzwerke visualisieren
-Visualisierungen bieten einen Überblick über verschiedene Netzwerke. Dabei können unterschiedliche Arten von Visualisierungen gemacht werden. Um sich Netzwerke in RStudio anzeigen zu lassen, gibt es e vordefinierte Befehle.
+Visualisierungen bieten einen Überblick über verschiedene Netzwerke. Dabei können unterschiedliche Arten von Visualisierungen gemacht werden. Um sich Netzwerke in *RStudio* anzeigen zu lassen, gibt es e vordefinierte Befehle.
 
 ## Einfache Visualisierung
-Um Ihr Netzwerk zu visualisieren, müssen Sie den plot-Befehl aus dem igraph-Paket nutzen. Dafür muss ihr Netzwerk als igraph-Objekt vorliegen. Wie Sie Ihre Edge- und Nodelist einlesen und das Netzwerk zum igraph-Objekt wandeln, haben Sie bereits gelernt.
+Um Ihr Netzwerk zu visualisieren, müssen Sie den plot-Befehl aus dem *igraph*-Paket nutzen. Dafür muss ihr Netzwerk als *igraph*-Objekt vorliegen. Wie Sie Ihre Edge- und Nodelist einlesen und das Netzwerk zum *igraph*-Objekt umwandeln, haben Sie bereits gelernt.
 
 Der plot-Befehl ist einfach aufgebaut. Grundlegend reicht es, den Befehl basal auszuführen:
 
 `> plot(network)`
 
-Sie sehen jetzt das Netzwerk unter dem Reiter "Plots". Mit der Zoom-Funktion können Sie sich Ihr Netzwerk genauer anschauen. In den seltensten Fällen werden Sie jedoch mit dem Ergebnis zufrieden sein – zu Ihrem Glück kann der plot-Befehl mithilfe mehrerer Argumente angepasst und auf Ihr Netzwerk individualisiert werden. In den folgenden Kapiteln lernen Sie, wie das funktioniert und welche Tricks es gibt, damit Ihr Netzwerk richtig visualisiert wird.
+Sie sehen jetzt das Netzwerk unter dem Reiter „Plots“. Mit der Zoom-Funktion können Sie sich Ihr Netzwerk genauer anschauen. In den seltensten Fällen werden Sie jedoch mit dem Ergebnis zufrieden sein – zu Ihrem Glück kann der plot-Befehl mithilfe mehrerer Argumente angepasst und auf Ihr Netzwerk individualisiert werden. In den folgenden Kapiteln lernen Sie, wie das funktioniert und welche Tricks es gibt, damit Ihr Netzwerk richtig visualisiert wird.
 
 ### Erweiterung der Basis-Visualisierung
 In ein paar einfachen Schritten kann man aus der basalen plot-Darstellung ein ansehnliches Netzwerk erstellen. Wenn wir bei einem gerichteten Netzwerk die Pfeilgrößen der Kanten anpassen wollen, schreiben wir:
@@ -23,7 +23,7 @@ Wenn Sie die Labels ganz ausschalten möchten, setzen sie vertex.label gleich NA
 
 `> plot(network, vertex.label=NA)`
 
-Natürlich kann man sämtliche Bausteine des Netzwerks anders färben. Dazu lassen wir uns erst einmal alle Farben anzeigen, die R zur Verfügung stellt. Natürlich können die Farben auch als Hex angegeben werden.
+Natürlich kann man sämtliche Bausteine des Netzwerks anders färben. Dazu lassen wir uns erst einmal alle Farben anzeigen, die *R* zur Verfügung stellt. Natürlich können die Farben auch als Hexadezimalzahl angegeben werden.
 
 `> colours() # Zeigt alle verfügbaren Farben an.`
 
@@ -41,11 +41,11 @@ Auch die Kanten können eingefärbt werden.
 
 Sie können veranlassen, dass die Labels in serifenloser Schrift angezeigt und ebenfalls gefärbt werden.
 
-`> plot(network, vertex.label.family = "Helvetica")
+`> plot(network, vertex.label.family = "Helvetica")`
 
 `> plot(network, vertex.label.color = "magenta3") # Färbt die Labels in magenta3.`
 
-Man kann ebenfalls die Labels etwas weiter von den Knoten darstellen. Dabei erhöht man die Vertex-Label-Distanz.
+Man kann ebenfalls die Labels etwas weiter weg von den Knoten darstellen. Dabei erhöht man die Vertex-Label-Distanz.
 
 `> plot(network, vertex.label.dist=2)`
 
@@ -96,18 +96,18 @@ Wenn Sie besonders viele Knoten haben, kann es helfen, das Netzwerk zu entzerren
 
 `> coords <- layout_with_kk(network)*0.4 # Sie sollten den Kamada-Kawai-Algorithmus verwenden, damit ihr Netzwerk in den nächsten Schritten immer auf dieselbe Art und Weise dargestellt wird. Den Namen „coords“ können Sie natürlich frei wählen.`
 
-Jetzt können Sie im plot-Befehl nicht nur das Layout gleich coords setzen, sondern auch die Grenzen des Graphs individuell setzen. Um die richtigen Zahlen dafür zu finden, ist auch hier Ausprobieren angesagt.
+Jetzt können Sie im plot-Befehl nicht nur das Layout gleich coords setzen, sondern auch die Grenzen des Graphs individuell setzen. Um die richtigen Zahlen dafür zu finden, ist auch hier Ausprobieren angesagt. ylim bezeichnet jeweils die untere (erste Zahl) und obere (zweite Zahl) Bildgrenze, xlim die linke (erste Zahl) und rechte (zweite Zahl).
 
 `> plot(network, layout=coords, rescale=FALSE, ylim=c(-1.0,1.0),xlim=c(-1.0,1.0), asp = 0)`
 
 #### Das Paket visNetwork nutzen
-Es gibt ein Paket, mit dem man Netzwerke viel schöner darstellen lassen kann als mit dem plot-Befehl. Es eignet sich damit gut, um Visualisierungen für Präsentationen oder ähnliches anzufertigen. Ein großer Nachteil gegenüber dem plot-Befehl liegt jedoch darin, dass ein visNetwork-Netzwerk nicht als PDF exportiert werden kann. Dementsprechend müssen Sie das Netzwerk im Zoom-Fenster screenshotten. Die Qualität bleibt dabei jedoch gut, weshalb sich ein Blick auf visNetwork auf jeden Fall lohnt. Zunächst sollten Sie das Paket installieren und laden.
+Es gibt ein Paket, mit dem man Netzwerke viel schöner darstellen lassen kann als mit dem plot-Befehl. Es eignet sich damit gut, um Visualisierungen für Präsentationen oder ähnliches anzufertigen. Ein großer Nachteil gegenüber dem plot-Befehl liegt jedoch darin, dass ein *visNetwork*-Netzwerk nicht als PDF exportiert werden kann. Dementsprechend müssen Sie das Netzwerk im Zoom-Fenster screenshotten. Die Qualität bleibt dabei jedoch gut, weshalb sich ein Blick auf *visNetwork* auf jeden Fall lohnt. Zunächst sollten Sie das Paket installieren und laden.
 
 `> install.packages("visNetwork", dependencies=TRUE)`
 
 `> library(visNetwork)`
 
-Sie werden für die Visualisierung den Befehl visIgraph nutzen. Wie der Name vermuten lässt, benötigen Sie auch hier ein igraph-Objekt. Das haben Sie jedoch, wenn Sie igraph und den plot-Befehl nutzen, eh im Vorhinein. Vorab können Sie das Aussehen der Knoten und Kanten definieren. Achten Sie darauf, dass visNetwork nicht die Farben kennt, die Ihnen R mit colours() zur Verfügung stellt. Geben Sie daher lieber Hexadezimalzahlen  an.
+Sie werden für die Visualisierung den Befehl visIgraph nutzen. Wie der Name vermuten lässt, benötigen Sie auch hier ein *igraph*-Objekt. Das haben Sie jedoch, wenn Sie *igraph* und den plot-Befehl nutzen, eh im Vorhinein. Vorab können Sie das Aussehen der Knoten und Kanten definieren. Achten Sie darauf, dass *visNetwork* nicht die Farben kennt, die Ihnen *R* mit colours() zur Verfügung stellt. Geben Sie daher lieber Hexadezimalzahlen  an.
 
 `> E(network)$arrow.size <- 0.1 # Die Pfeilspitzengröße bei gerichteten Netzwerken.`
 
@@ -125,7 +125,7 @@ Danach plotten Sie das Netzwerk mit dem Befehl visIgraph. All ihre vorab festgel
 
 `> visIgraph(UKfaculty, type = "full")`
 
-Praktischerweise kann man im Zoom-Fenster die Knoten je nach Lust und Laune verschieben und damit sehr dichte, unübersichtliche Stellen entzerren. Haben die Entfernungen der Knoten jedoch einen wichtigen Sinn, sollte man dies natürlich vermeiden.
+Praktischerweise kann man im Zoom-Fenster die Knoten mit der Maus je nach Lust und Laune verschieben und damit sehr dichte, unübersichtliche Stellen entzerren. Haben die Entfernungen der Knoten jedoch einen wichtigen Sinn, sollte man dies natürlich vermeiden.
 
 ## Visualisierung von Netzwerk- und Akteursmaßen
 Prinzipiell sollten Sie sich vor der Visualisierung eines Netzwerks überlegen, welche Relationen und Maße sie darstellen wollen. Schließlich soll das Netzwerk eine Antwort auf Ihre Forschungsfrage liefern. Am besten ist es immer, wenn Sie sich zunächst eine Skizze anfertigen.
@@ -157,7 +157,7 @@ Richtig interessant werden die Netzwerke immer dann, wenn wir bestimmte Attribut
 
 Der Befehl visualisiert jetzt das Netzwerk ohne labels, aber mit den einfachen Häufigkeiten der ungerichteten Beziehungen, die ein Knoten haben kann. Das haben wir schon früher gesehen.
 
-(Zur Vertiefung sehr zu empfehlen: Ognyanova, K. (2017). Network visualization with R. Retrieved from www.kateto.net/network-visualization)
+(Zur Vertiefung sehr zu empfehlen: Ognyanova, K. (2017). *Network visualization with R.* Retrieved from www.kateto.net/network-visualization)
 
 ## Beispiel: Visualisierung Zachary's Karateclub
 Rufen wir uns zunächst Zachary's Netzwerk nochmals in Erinnerung:
@@ -168,13 +168,13 @@ Rufen wir uns zunächst Zachary's Netzwerk nochmals in Erinnerung:
 
 `> plot(karate)`
 
-Wir sehen im Reiter plots, dass das Netzwerk bereits nach dem Vertex Attribut "Faction" farbig codiert ist. Überprüfen kann man dies, indem man sich die Ausprägungen der Attribute "color" und "Faction" anzeigen lässt.
+Wir sehen im Reiter plots, dass das Netzwerk bereits nach dem Vertex Attribut „Faction“ farbig codiert ist. Überprüfen kann man dies, indem man sich die Ausprägungen der Attribute „color“ und „Faction“ anzeigen lässt.
 
 `> vertex_attr(karate, "color")`
 
 `> vertex_attr(karate, "Faction")`
 
-Wir sehen, dass die beiden Attribute identisch sind. "color" wird für die Visualisierung automatisch ausgelesen. Wir löschen jetzt das Attribut "color" aus dem Datensatz und schreiben das Ergebnis in ein neues Netzwerk karate_new
+Wir sehen, dass die beiden Attribute identisch sind. „color“ wird für die Visualisierung automatisch ausgelesen. Wir löschen jetzt das Attribut „color“ aus dem Datensatz und schreiben das Ergebnis in ein neues Netzwerk karate_new
 
 `> karate_new <- delete_vertex_attr(karate, "color")`
 
@@ -186,7 +186,7 @@ Wir wollen jetzt den Datensatz neu einfärben. Faction 1 (um John A) soll die Fa
 
 `> plot(karate_new)`
 
-Wir können jetzt einfach die Farben im Vektor "farbe" austauschen, probieren Sie das einfach mal aus:
+Wir können jetzt einfach die Farben im Vektor „farbe“ austauschen, probieren Sie das einfach mal aus:
 
 `> farbe <- c("gold", "lightgreen")`
 
@@ -202,7 +202,7 @@ Wir haben bereits gelernt, wie wir die Größe der Knoten in Relation zu den Deg
 
 `> plot(karate_new, vertex.size=degree(karate), vertex.label=NA)`
 
-Achtung: es gibt den Befehl degree() mehrmals in R. Achten Sie darauf, dass Sie den Befehl aus dem igraph Paket verwenden. Wenn das Paket SNA noch geladen ist, kommt das zu Konflikten. Sie können das SNA Paket wieder aus dem Programmspeicher löschen: detach("package:sna", unload=TRUE)
+Achtung: es gibt den Befehl degree() mehrmals in *R*. Achten Sie darauf, dass Sie den Befehl aus dem *igraph*-Paket verwenden. Wenn das Paket *SNA* noch geladen ist, kommt das zu Konflikten. Sie können das *SNA*-Paket wieder aus dem Programmspeicher löschen: detach("package:sna", unload=TRUE)
 
 `> deg <- degree(karate, mode="all") # Berechnet das Degree-Maß von allen Knoten`
 
@@ -222,4 +222,4 @@ Die Kantenstärke von 78 Kanten reicht von 1 bis maximal 7. Damit diese etwas ü
 
 ## Quellen
 
-Luke, D. A. (2015). A User's Guide to Network Analysis in R. Wiesbaden: Springer VS.
+Luke, D. A. (2015). *A User's Guide to Network Analysis in R*. Wiesbaden: Springer VS.
