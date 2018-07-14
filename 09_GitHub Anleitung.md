@@ -33,7 +33,13 @@ Bisher sind Sie als Admin allein in Ihrem Repository. Unter Settings > Collabora
 ![Mitglieder einladen](/00_images/Collaborators.png)
 
 #### Projekt einrichten
-Dieser Schritt ist nicht zwingend notwendig, aber durchaus nützlich. Im Reiter „Projects“ können Sie als Admin ein Projekt erstellen. Dieses können Sie einfach gleich wie das Repository benennen. Unter „Template“ können Sie mit der Auswahl „Kanban Basic“ eine interne To-Do-Liste erstellen, die wie beim Online-Anbieter *Trello* gestaltet ist. Wenn Sie das Projekt mit diesem Template erstellt haben, können Sie Aufgaben notieren und als bewegliche Kästchen zwischen den Kategorien „To-Do“, „In Progress“ und „Done“ hin- und herschieben. Diese Kategorien können Sie nach Wunsch beliebig anpassen. Jedes Gruppenmitglied kann das Projekt einsehen und die Aufgaben bearbeiten.
+Dieser Schritt ist nicht zwingend notwendig, aber durchaus nützlich. Im Reiter „Projects“ können Sie als Admin ein Projekt erstellen. Dieses können Sie einfach gleich wie das Repository benennen. Unter „Template“ können Sie mit der Auswahl „Kanban Basic“ eine interne To-Do-Liste erstellen, die wie beim Online-Anbieter *Trello* gestaltet ist. 
+
+![New Project](/00_images/Projekt.png)
+
+Wenn Sie das Projekt mit diesem Template erstellt haben, können Sie Aufgaben notieren und als bewegliche Kästchen zwischen den Kategorien „To-Do“, „In Progress“ und „Done“ hin- und herschieben. Diese Kategorien können Sie nach Wunsch beliebig anpassen. Jedes Gruppenmitglied kann das Projekt einsehen und die Aufgaben bearbeiten.
+
+![To-Dos](/00_images/ToDo.png)
 
 ## GitHub Nutzung
 Das Repository ist angelegt, Ihre Gruppenmitglieder sind eingeladen und gegebenenfalls haben Sie sogar ein Projekt angelegt, in dem Sie Ihre To-Dos organisieren können. Jetzt können Sie damit beginnen, Ihr Netzwerkprojekt in *GitHub* zu bearbeiten. Wie Sie *GitHub* dafür am besten nutzen können, wird in den folgenden Kapiteln schrittweise erklärt.
