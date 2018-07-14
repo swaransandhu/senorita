@@ -22,6 +22,8 @@ Im sich öffnenden Fenster wählen Sie Ihren Account als Owner aus und benennen 
 
 Setzen Sie den Haken beim Punkt „Initialize...“ und lassen Sie die anderen Schaltflächen auf None/None. Drücken Sie auf Create Repository und Sie befinden sich in Ihrem eigenen Projekt. Was Sie dort alles machen können, wird im nächsten Kapitel erklärt.
 
+![Repository gründen](/00_images/RepoGruenden.png)
+
 ### Erste Schritte
 Bevor Sie loslegen können, gibt es noch ein paar Dinge zu tun.
 
