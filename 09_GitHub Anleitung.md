@@ -30,6 +30,8 @@ Bevor Sie loslegen können, gibt es noch ein paar Dinge zu tun.
 #### Mitglieder einladen
 Bisher sind Sie als Admin allein in Ihrem Repository. Unter Settings > Collaborators können Sie Ihre Gruppenmitglieder einladen. Dafür müssen Sie schlicht deren *GitHub*-Usernamen eingeben und einen Einladungslink verschicken, den die Mitglieder in ihrem E-Mail-Posteingang bestätigen müssen.
 
+![Mitglieder einladen](/00_images/Collaborators.png)
+
 #### Projekt einrichten
 Dieser Schritt ist nicht zwingend notwendig, aber durchaus nützlich. Im Reiter „Projects“ können Sie als Admin ein Projekt erstellen. Dieses können Sie einfach gleich wie das Repository benennen. Unter „Template“ können Sie mit der Auswahl „Kanban Basic“ eine interne To-Do-Liste erstellen, die wie beim Online-Anbieter *Trello* gestaltet ist. Wenn Sie das Projekt mit diesem Template erstellt haben, können Sie Aufgaben notieren und als bewegliche Kästchen zwischen den Kategorien „To-Do“, „In Progress“ und „Done“ hin- und herschieben. Diese Kategorien können Sie nach Wunsch beliebig anpassen. Jedes Gruppenmitglied kann das Projekt einsehen und die Aufgaben bearbeiten.
 
