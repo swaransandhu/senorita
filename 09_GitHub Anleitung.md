@@ -14,7 +14,11 @@ Zunächst müssen Sie sich auf [*GitHub*](www.github.com) registrieren. Wählen 
 In Ihrer Gruppe muss nur eine Person das Repository gründen. Ein Repository ist ein Arbeitsbereich, in den Sie Ihre Dateien laden, bearbeiten und sich austauschen. Kurzum: Das Repository ist Ihr Projekt. Die Person, die es gründet, ist zeitgleich Admin und hat damit die meisten Rechte. Es sollte also jemand sein, der mit *GitHub* umgehen kann.
 
 #### Repository gründen
-Gehen Sie oben rechts auf *GitHub* auf das kleine Plus-Zeichen und klicken Sie auf New Repository. Im sich öffnenden Fenster wählen Sie Ihren Account als Owner aus und benennen das Repository sinnvoll, zum Beispiel als „Netzwerkprojekt“ oder „Karate_Club“. Der Name muss nicht einzigartig gewählt werden, sondern sollte lieber gut im Gedächtnis bleiben. Auf Umlaute sollten Sie auch hier jedoch verzichten. In der Description müssen Sie nichts angeben. Wenn Sie wollen, können Sie hier Ihr Projekt aber kurz beschreiben. Wenn Sie kein Bezahl-Abo abschließen wollen, muss Ihr Repository auf öffentlich bleiben. Das bedeutet aber auch, dass jeder Ihr Projekt einsehen kann. Das ist nicht schlimm, immerhin bearbeiten Sie hier hauptsächlich nur Skripte. Bedenken Sie dennoch, keine privaten Informationen über sich ins Repository zu stellen.
+Gehen Sie oben rechts auf *GitHub* auf das kleine Plus-Zeichen und klicken Sie auf New Repository. 
+
+![Repository gründen](/00_images/NewRepo.png)
+
+Im sich öffnenden Fenster wählen Sie Ihren Account als Owner aus und benennen das Repository sinnvoll, zum Beispiel als „Netzwerkprojekt“ oder „Karate_Club“. Der Name muss nicht einzigartig gewählt werden, sondern sollte lieber gut im Gedächtnis bleiben. Auf Umlaute sollten Sie auch hier jedoch verzichten. In der Description müssen Sie nichts angeben. Wenn Sie wollen, können Sie hier Ihr Projekt aber kurz beschreiben. Wenn Sie kein Bezahl-Abo abschließen wollen, muss Ihr Repository auf öffentlich bleiben. Das bedeutet aber auch, dass jeder Ihr Projekt einsehen kann. Das ist nicht schlimm, immerhin bearbeiten Sie hier hauptsächlich nur Skripte. Bedenken Sie dennoch, keine privaten Informationen über sich ins Repository zu stellen.
 
 Setzen Sie den Haken beim Punkt „Initialize...“ und lassen Sie die anderen Schaltflächen auf None/None. Drücken Sie auf Create Repository und Sie befinden sich in Ihrem eigenen Projekt. Was Sie dort alles machen können, wird im nächsten Kapitel erklärt.
 
