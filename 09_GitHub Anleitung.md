@@ -16,7 +16,7 @@ In Ihrer Gruppe muss nur eine Person das Repository gründen. Ein Repository ist
 #### Repository gründen
 Gehen Sie oben rechts auf *GitHub* auf das kleine Plus-Zeichen und klicken Sie auf New Repository. 
 
-![Repository gründen](/00_images/NewRepo.png)
+![New Repository](/00_images/NewRepo.png)
 
 Im sich öffnenden Fenster wählen Sie Ihren Account als Owner aus und benennen das Repository sinnvoll, zum Beispiel als „Netzwerkprojekt“ oder „Karate_Club“. Der Name muss nicht einzigartig gewählt werden, sondern sollte lieber gut im Gedächtnis bleiben. Auf Umlaute sollten Sie auch hier jedoch verzichten. In der Description müssen Sie nichts angeben. Wenn Sie wollen, können Sie hier Ihr Projekt aber kurz beschreiben. Wenn Sie kein Bezahl-Abo abschließen wollen, muss Ihr Repository auf öffentlich bleiben. Das bedeutet aber auch, dass jeder Ihr Projekt einsehen kann. Das ist nicht schlimm, immerhin bearbeiten Sie hier hauptsächlich nur Skripte. Bedenken Sie dennoch, keine privaten Informationen über sich ins Repository zu stellen.
 
