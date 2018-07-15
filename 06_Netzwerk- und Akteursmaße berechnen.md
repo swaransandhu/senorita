@@ -140,7 +140,7 @@ Das Eigenvektor-Maß wird wie folgt für alle Knoten berechnet:
 `> eigen_centrality(network)`
 
 ### K-Core
-„Coreness ist ein Maß, das bei der Identifizierung von eng miteinander verbundenen Gruppen innerhalb eines Netzwerks hilfreich ist. Der K-Core bezeichnet die größte der Gruppen, deren Entitäten mit mindestens k anderen Entitäten innerhalb der Gruppe verbunden sind“ (IBM Corporation, 2017, Abschnitt 10).
+„Coreness ist ein Maß, das bei der Identifizierung von eng miteinander verbundenen Gruppen innerhalb eines Netzwerks hilfreich ist. Der K-Core bezeichnet die Größte der Gruppen, deren Entitäten mit mindestens k anderen Entitäten innerhalb der Gruppe verbunden sind“ (IBM Corporation, 2017, Abschnitt 10).
 
 Der K-Core kann mithilfe dieses Befehls berechnet werden:
 
