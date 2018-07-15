@@ -148,7 +148,7 @@ Der K-Core kann mithilfe dieses Befehls berechnet werden:
 
 ## Beispiel Semesternetzwerk
 
-Wenden Sie Ihr neu erlerntes Wissen gleich an und berechnen Sie die verschiedenen Netzwerk- und Akteursmaße innerhalb des Semesternetzwerks! Laden Sie dazu dieses Skript herunter, speichern Sie es in Ihrem Working Directory ab und öffnen es in *RStudio*. Im Video wird Ihnen Schritt für Schritt erklärt, welche Maße erhoben werden und welche Aussagekraft diese besitzen.
+Wenden Sie Ihr neu erlerntes Wissen gleich an und berechnen Sie die verschiedenen Netzwerk- und Akteursmaße innerhalb des Semesternetzwerks! Laden Sie dazu [dieses Skript](/skripte/AkteurundNetzwerk_Semester.R) herunter, speichern Sie es in Ihrem Working Directory ab und öffnen es in *RStudio*. Im Video wird Ihnen Schritt für Schritt erklärt, welche Maße erhoben werden und welche Aussagekraft diese besitzen.
 
 ## Quellen
 Fuhse, J. A. (2016). *Soziale Netzwerke: Konzepte und Forschungsmethoden*. Konstanz u. München: UVK Verlagsgesellschaft.
