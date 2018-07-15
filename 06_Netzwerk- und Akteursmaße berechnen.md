@@ -89,7 +89,7 @@ Die Zentralität eines Akteurs kann demnach nicht nur unterschiedlich definiert,
 
 Welchen Wert man zur Berechnung der Zentralität heranziehen möchte, leitet sich vor allem aus der Forschungsfrage, den inhaltlichen Gegebenheiten des Netzwerks und der Definition der Beziehungen ab. Im Nachstehenden sehen Sie eine kurze Übersicht über die Zentralitätsmaße und deren Befehle für die Pakete *statnet* und *igraph* (Luke 2015, S. 95), wobei wir im Seminar vorrangig mit *igraph* arbeiten.
 
-![Befehle für Akteursmaße](/00_images_Akteurbefehl.png)
+![Befehle für Akteursmaße](/00_images/Akteurbefehl.png)
 
 In den folgenden Unterkapiteln werden wir mehrere Zentralitätsmaße anschauen, darunter das Degree, die Betweenness, Closeness, den Eigenvektor und den K-Core.
 
