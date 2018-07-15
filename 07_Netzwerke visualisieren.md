@@ -220,6 +220,8 @@ Die Kantenstärke von 78 Kanten reicht von 1 bis maximal 7. Damit diese etwas ü
 
 `> plot(karate_new)
 
+Das Skript finden Sie [hier](/skripte/KarateVisualisierung.R)praktisch zum Download.
+
 ## Quellen
 
 Luke, D. A. (2015). *A User's Guide to Network Analysis in R*. Wiesbaden: Springer VS.
