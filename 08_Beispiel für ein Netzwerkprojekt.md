@@ -14,7 +14,7 @@ Der Datenzugang muss vorab genau geklärt werden. Im Falle dieses Netzwerks war 
 Die Forschungsfrage sollte konkret und nicht „ins Blaue“ formuliert werden. Es lohnt sich, das erwünschte Forschungsfeld vorab explorativ zu ergründen, um interessante Aspekte aufzuwerfen. Überhaupt lohnt sich ein breit ausgelegter „Pre-Test“, um zu schauen, ob sich überhaupt ein Netzwerk ergibt.
 
 ## Erhebung und Bereinigung
-Für die Erhebung der Daten wurde ausschließlich *Google Tables* genutzt. Zur Überprüfung der Daten wurde *RStudio* verwendet. Zunächst wurde erhoben, in welchen Filmen die Schauspieler in den Jahren XX bis XX gespielt hatten. Dabei wurden – da es sich hierbei um ein bi-partites Netzwerk handelt – die Filme als weitere Akteure behandelt. In der Edgelist wurde in den *from*- und *to*-Spalten also jeweils ein Schauspieler-Film-Pärchen abgetragen. In der Spalte *weight* wurde festgehalten, XXXX. Die ersten Zeilen der fertigen Edgelist sehen folgendermaßen aus:
+Für die Erhebung der Daten wurde ausschließlich *Google Tables* genutzt. Zur Überprüfung der Daten wurde *RStudio* verwendet. Zunächst wurde erhoben, in welchen Filmen die Schauspieler gespielt haben. Dabei wurden – da es sich hierbei um ein bi-partites Netzwerk handelt – die Filme als weitere Akteure behandelt. In der Edgelist wurde in den *from*- und *to*-Spalten also jeweils ein Schauspieler-Film-Pärchen abgetragen. Das Beziehungsgewicht wurde in der Spalte *weight* festgehalten. Die ersten Zeilen der fertigen Edgelist sehen folgendermaßen aus:
 
 ![Edgelist Oscar](/00_images/EdgelistOsc.png)
 
