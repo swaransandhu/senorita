@@ -85,7 +85,7 @@ Wenn wir nun das Netzwerk visualisieren, können wir vcoloscar für die Definiti
 
 `> plot(oscar, vertex.color=vcoloscar)`
 
-![Grün und Gelb](/00_images/GrünGelb.png)
+![Grün und Gelb](/00_images/GruenGelb.png)
 
 Spätestens jetzt sollten wir uns um die Knotenlabels kümmern, damit wir eine bessere Übersicht vom Netzwerk erhalten. Wir entscheiden, dass das Labeln der Filme nicht weiter relevant ist und uns nur die Bezeichnung der Schauspieler interessiert. Wir wollen also nur die Labels der Knoten behalten, deren Typ gleich zwei ist. Das können wir ganz einfach im Plot-Befehl festlegen.
 
