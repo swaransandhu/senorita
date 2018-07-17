@@ -97,7 +97,22 @@ Die **mittlere Pfaddistanz** erhalten wir mithilfe von:
 
 `> mean_distance(oscar)`
 
-Sie liegt bei etwa 6 Kanten. Der hohe Wert lässt sich damit erklären, dass wir ein dyadisch aufgebautes Netzwerk haben. Einen Mehrwert bietet dieser Wert jedoch ebenfalls nicht.
+Sie liegt bei etwa 6 Kanten. Der hohe Wert lässt sich damit erklären, dass wir ein dyadisch aufgebautes Netzwerk haben. Einen Mehrwert bietet dieser Wert jedoch ebenfalls nicht. Die Berechnung des **Durchmessers** macht an dieser Stelle ebenfalls keinen Sinn.
+
+### Akteursmaße
+Den **Degree** der Knoten berechnen wir mithilfe von:
+
+`> degree(oscar)`
+
+Dabei interessieren uns vorrangig die Degrees der Schauspieler. Je mehr Degrees ein Schauspieler hat, in desto mehr Projekten hat er im Beobachtungszeitraum mitgewirkt. Ein höherer Degree-Wert kann damit (vorsichtig!) als eine bessere Auftragslage interpretiert werden. In der Interpretation würde man nun auffällige, also besonders hohe und niedrige, Werte näher betrachten und die betroffenen Knoten auf ihre Attribute hin untersuchen. Die Degree-Werte kann man natürlich auch normalisieren, um eine bessere Vergleichsbasis zu schaffen.
+
+`> degree(oscar, normalized = TRUE)`
+
+Mit der **Betweenness-Zentralität** prüft man, ob es Akteure gibt, die eine gewisse Brokerage-Position einnehmen.
+
+`> betweenness(oscar)`
+
+Die Berechnung der Betweenness macht jedoch wenig Sinn, da die Kanten nicht die nötige Beschaffung für eine Brokerage-Betrachtung bieten. 
 
 ## Visualisierung
 
