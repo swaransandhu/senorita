@@ -89,4 +89,33 @@ Wenn wir nun das Netzwerk visualisieren, können wir vcoloscar für die Definiti
 
 Spätestens jetzt sollten wir uns um die Knotenlabels kümmern, damit wir eine bessere Übersicht vom Netzwerk erhalten. Wir entscheiden, dass das Labeln der Filme nicht weiter relevant ist und uns nur die Bezeichnung der Schauspieler interessiert. Wir wollen also nur die Labels der Knoten behalten, deren Typ gleich zwei ist. Das können wir ganz einfach im Plot-Befehl festlegen.
 
+`> plot(oscar, vertex.color=vcoloscar, vertex.label = ifelse(V(oscar)$type == "2", V(oscar)$name, NA))`
+
+Im Klartext bedeutet das Attribut: „Wenn ein Knoten die type-Ausprägung „2“ hat, so wird sein Attribut „name“ als label festgelegt. Alle anderen Knoten, die dem type gleich 2 nicht entsprechen, haben kein Laben, da „NA“.“ Das Ergebnis lässt sich sehen:
+
+![Labels](/00_images/Label.png)
+
+Jetzt stören uns weniger die Labels als die Knoten selbst. Mit der Knotengröße verfahren wir daher ähnlich. Die Größe der Schauspieler soll anhand des Degrees bestimmt werden, die restlichen Knoten, also die Filme, sollen eine unveränderliche Größe haben. Das erreichen wir mit dem folgenden Argument: 
+
+`> plot(oscar, vertex.color=vcoloscar, vertex.label = ifelse(V(oscar)$type == "2", V(oscar)$name, NA), vertex.size = ifelse(V(oscar)$type == "2", degree(oscar)/3, 3))`
+
+Im Klartext: „Wenn ein Knoten die type-Ausprägung „2“ hat, so wird seine Größe anhand des Degrees bestimmt. Dabei wird der Degree geteilt, damit die Knoten nicht zu groß ausfallen. Alle anderen Knoten, die dem type gleich 2 nicht entsprechen, haben die Größe „3“.“
+
+![Knotengröße](/00_images/Nodesize.png)
+
+Jetzt kümmern wir uns um das Layout. Dafür legen wir zunächst eine Variable an. und passen dann das Netzwerk mit den x- und y-Koordinaten an das Fenster an. Achtung: hier muss man ausprobieren, bis es gut aussieht!
+
+`> coords <- layout_with_kk(oscar)*0.2`
+`> plot(oscar, vertex.color=vcoloscar, vertex.label = ifelse(V(oscar)$type == "2", V(oscar)$name, NA), vertex.size = ifelse(V(oscar)$type == "2", degree(oscar)/3, 3), layout = coords, rescale = FALSE, ylim=c(-1.5,2.2),xlim=c(-0.5,0.5))`
+
+![Layout](/00_images/LayoutOscar.png)
+
+Nehmen wir noch ein paar letzte Schönheitsanpassungen vor. Wir verändern die Knotenumrissfarbe, die Label-Schriftart, -farbe und -größe sowie die Distanz des Labels zum Knoten.
+
+`> plot(oscar, vertex.color=vcoloscar, vertex.label = ifelse(V(oscar)$type == "2", V(oscar)$name, NA), vertex.size = ifelse(V(oscar)$type == "2", degree(oscar)/3, 3), layout = coords, rescale = FALSE, ylim=c(-1.5,2.2),xlim=c(-0.5,0.5), vertex.frame.color = "transparent", vertex.label.family = "Helvetica", vertex.label.color = "black", vertex.label.cex=c(0.7), vertex.label.dist=-2)`
+
+![Visualisierung](/00_images/VisualOscar.png)
+
+In diesem Fall gefällt uns das Ergebnis und wir beschließen vorerst die Visualisierung. Natürlich kann man noch eine Menge anderer Dinge anpassen und individualisieren.
+
 ## Interpretation der Daten und Ausblick
