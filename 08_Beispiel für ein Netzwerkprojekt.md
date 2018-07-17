@@ -110,6 +110,12 @@ Jetzt kümmern wir uns um das Layout. Dafür legen wir zunächst eine Variable a
 
 ![Layout](/00_images/LayoutOscar.png)
 
+Die Breite der Kanten soll sich am Gewicht der Kanten orientieren. Dafür fügen wir hinzu:
+
+`> plot(oscar, vertex.color=vcoloscar, vertex.label = ifelse(V(oscar)$type == "2", V(oscar)$name, NA), vertex.size = ifelse(V(oscar)$type == "2", degree(oscar)/3, 3), layout = coords, rescale = FALSE, ylim=c(-1.5,2.2),xlim=c(-0.5,0.5), edge.width=E(oscar)$weight)`
+
+![Layout](/00_images/EdgeOscar.png)
+
 Nehmen wir noch ein paar letzte Schönheitsanpassungen vor. Wir verändern die Knotenumrissfarbe, die Label-Schriftart, -farbe und -größe sowie die Distanz des Labels zum Knoten.
 
 `> plot(oscar, vertex.color=vcoloscar, vertex.label = ifelse(V(oscar)$type == "2", V(oscar)$name, NA), vertex.size = ifelse(V(oscar)$type == "2", degree(oscar)/3, 3), layout = coords, rescale = FALSE, ylim=c(-1.5,2.2),xlim=c(-0.5,0.5), vertex.frame.color = "transparent", vertex.label.family = "Helvetica", vertex.label.color = "black", vertex.label.cex=c(0.7), vertex.label.dist=-2)`
