@@ -73,4 +73,20 @@ Hier muss eindeutig noch eine Menge getan werden, damit das Netzwerk anschaulich
 
 ## Visualisierung
 
+Da das Netzwerk zwei Knotentypen abbildet – Schauspieler und Filme –, ist es ratsam, diese Gruppen visuell zu differenzieren. Daher kümmern wir uns zunächst darum, die Knoten unterschiedlich einzufärben.
+
+`> vcoloscar <- vcount(oscar)`
+
+`> vcoloscar[V(oscar)$type == "1"] <- "green"`
+
+`> vcoloscar[V(oscar)$type == "2"] <- "gold"`
+
+Wenn wir nun das Netzwerk visualisieren, können wir vcoloscar für die Definition der Knotenfarbe nutzen.
+
+`> plot(oscar, vertex.color=vcoloscar)`
+
+![Grün und Gelb](/00_images/GrünGelb.png)
+
+Spätestens jetzt sollten wir uns um die Knotenlabels kümmern, damit wir eine bessere Übersicht vom Netzwerk erhalten. Wir entscheiden, dass das Labeln der Filme nicht weiter relevant ist und uns nur die Bezeichnung der Schauspieler interessiert. Wir wollen also nur die Labels der Knoten behalten, deren Typ gleich zwei ist. Das können wir ganz einfach im Plot-Befehl festlegen.
+
 ## Interpretation der Daten und Ausblick
