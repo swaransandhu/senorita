@@ -120,7 +120,7 @@ Nehmen wir noch ein paar letzte Schönheitsanpassungen vor. Wir verändern die K
 
 `> plot(oscar, vertex.color=vcoloscar, vertex.label = ifelse(V(oscar)$type == "2", V(oscar)$name, NA), vertex.size = ifelse(V(oscar)$type == "2", degree(oscar)/3, 3), layout = coords, rescale = FALSE, ylim=c(-1.5,2.2),xlim=c(-0.5,0.5), edge.width=E(oscar)$weight, vertex.frame.color = "transparent", vertex.label.family = "Helvetica", vertex.label.color = "black", vertex.label.cex=c(0.7), vertex.label.dist=-2)`
 
-![Visualisierung](/00_images/VisualOscar.png)
+![Visualisierung](/00_images/VisualOscar2.png)
 
 In diesem Fall gefällt uns das Ergebnis und wir beschließen vorerst die Visualisierung. Natürlich kann man noch eine Menge anderer Dinge anpassen und individualisieren.
 
