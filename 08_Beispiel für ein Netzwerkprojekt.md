@@ -50,7 +50,6 @@ Wir haben nun unser finales *igraph*-Objekt oscar, das wir uns in der Konsole au
 
 `> oscar`
 
-
 Wir erhalten das folgende Ergebnis.
 
 ![Edgelist Oscar](/00_images/oscar.png)
@@ -70,6 +69,35 @@ Wir können das Netzwerk kurz plotten, um einen ersten Eindruck von oscar zu erh
 Hier muss eindeutig noch eine Menge getan werden, damit das Netzwerk anschaulich wird.
 
 ## Berechnung relevanter Maßen
+
+### Netzwerkmaße
+Die **Dichte** berechnen wir mithilfe von
+
+`> edge_density(oscar)`
+
+Als Ergebnis erhalten wir 0.015, also sind 1,5 Prozent der möglichen Kanten tatsächlich realisiert. Das Netzwerk hat demnach eine sehr geringe Dichte. Rein technisch betrachtet ist die Dichte deswegen gering, da das Netzwerk in mehrere Komponenten zerfällt. Wir überprüfen diese Annahme schnell mit dem folgenden Befehl.
+
+`> components(oscar)`
+
+Das Netzwerk hat neun Komponenten. Das bedeutet, dass eine Menge Kanten allein dadurch entfallen, da es keine Verbindungen zwischen den Komponenten gibt. Zudem haben die meisten Filme lediglich eine Verbindung zu einem Akteur. 
+
+Der **Triadenzensus** kann für das Netzwerk nicht durchgeführt werden, da es ungerichtet ist und die Triaden-Typen nicht abgebildet werden können. Dafür kann man jedoch den **Cliques**-Befehl anwenden und die Anzahl der Knoten auf mini- und maximal drei stellen.
+
+`> cliques(oscar, min="3", max="3")`
+
+Als Ergebnis erhalten wir list(), das bedeutet, dass es keine Ergebnisse gibt. Diesen Umstand können wir uns leicht erklären. Eine Clique mit drei Knoten, also eine Triade, ist schlicht eine unmögliche Konstellation innerhalb dieses Netzwerks. Das liegt daran, dass die Kanten jeweils zwischen Schauspielern und Filmen liegen und nicht zwischen Akteuren desselben Typs. Drei Knoten können daher unmöglich zueinander in Verbindung stehen, da mindestens eine Kante innerhalb einer derartigen Triade zwischen zwei Filmen oder Schauspielern existieren müsste. Im Klartext bedeutet das, dass das Netzwerk lediglich aus Dyaden besteht. Die einzige Cliquen-Form besteht demnach aus zwei Knoten. Die Anzahl der max cliques und largest cliques beträgt jeweils 257 und bietet keinen Mehrwert oder Erkenntnisgewinn.Verdoppelt man die 257, kommt man übrigens auf 514 Beziehungen. Das igraph-Objekt hat jedoch 516 Beziehungen. Wohin die letzte Dyade verschwunden ist, wird an dieser Stelle nicht klar, macht jedoch aus Sicht der Forschung keinen Unterschied. 
+
+Die am **weitesten voneinander entfernten Knoten** ermitteln wir mit dem Befehl:
+
+`> farthest_vertices(oscar)`
+
+Als Ergebnis erhalten wir zwei Filme – 12 Years a Slave und Black Swan. Zwischen ihnen liegen 16 Kanten. Diese Berechnung hat jedoch keinerlei Aussage oder Logik, da man nicht „über Schauspieler zu Filmen läuft“ oder Filme geographisch, emotional etc. weiter oder näher zueinander liegen können.
+
+Die **mittlere Pfaddistanz** erhalten wir mithilfe von:
+
+`> mean_distance(oscar)`
+
+Sie liegt bei etwa 6 Kanten. Der hohe Wert lässt sich damit erklären, dass wir ein dyadisch aufgebautes Netzwerk haben. Einen Mehrwert bietet dieser Wert jedoch ebenfalls nicht.
 
 ## Visualisierung
 
