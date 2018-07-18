@@ -85,6 +85,7 @@ Es wird nur ein Teil der Daten eingelesen, eine Kombination der Edge- und Nodeli
 Auch wenn wir vorrangig mit *R* arbeiten und unsere Edge- und Nodelisten mithilfe von *Google Tables* erstellen, gibt es noch einige Helferlein, die Sie bei der Datensammlung und -bereinigung unterstützen können.
 
 ### Open Office
+Während sich *Excel* für die Datensammlung nicht eignet und Sie lieber auf *Google Tables* zurückgreifen sollten, können Sie auch das *Calc*-Programm von *Open Office* nutzen. *Open Office* können Sie hier kostenlos herunterladen.
 
 ### SocNetV (Social Network Visualizer)
 
