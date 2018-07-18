@@ -82,7 +82,7 @@ Achtung: *R* ist kontextintensiv, d.h. auch Tippfehler werden bestraft.
 Es wird nur ein Teil der Daten eingelesen, eine Kombination der Edge- und Nodelist funktioniert nicht.
 
 ## Zusätzliche Programme
-Wir arbeiten mit *R*, aber manchmal sind zusätzliche Programme ebenfalls hilfreich.
+Auch wenn wir vorrangig mit *R* arbeiten und unsere Edge- und Nodelisten mithilfe von *Google Tables* erstellen, gibt es noch einige Helferlein, die Sie bei der Datensammlung und -bereinigung unterstützen können.
 
 ### Open Office
 
