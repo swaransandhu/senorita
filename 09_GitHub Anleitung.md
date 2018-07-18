@@ -14,9 +14,15 @@ Zunächst müssen Sie sich auf [*GitHub*](www.github.com) registrieren. Wählen 
 In Ihrer Gruppe muss nur eine Person das Repository gründen. Ein Repository ist ein Arbeitsbereich, in den Sie Ihre Dateien laden, bearbeiten und sich austauschen. Kurzum: Das Repository ist Ihr Projekt. Die Person, die es gründet, ist zeitgleich Admin und hat damit die meisten Rechte. Es sollte also jemand sein, der mit *GitHub* umgehen kann.
 
 #### Repository gründen
-Gehen Sie oben rechts auf *GitHub* auf das kleine Plus-Zeichen und klicken Sie auf New Repository. Im sich öffnenden Fenster wählen Sie Ihren Account als Owner aus und benennen das Repository sinnvoll, zum Beispiel als „Netzwerkprojekt“ oder „Karate_Club“. Der Name muss nicht einzigartig gewählt werden, sondern sollte lieber gut im Gedächtnis bleiben. Auf Umlaute sollten Sie auch hier jedoch verzichten. In der Description müssen Sie nichts angeben. Wenn Sie wollen, können Sie hier Ihr Projekt aber kurz beschreiben. Wenn Sie kein Bezahl-Abo abschließen wollen, muss Ihr Repository auf öffentlich bleiben. Das bedeutet aber auch, dass jeder Ihr Projekt einsehen kann. Das ist nicht schlimm, immerhin bearbeiten Sie hier hauptsächlich nur Skripte. Bedenken Sie dennoch, keine privaten Informationen über sich ins Repository zu stellen.
+Gehen Sie oben rechts auf *GitHub* auf das kleine Plus-Zeichen und klicken Sie auf New Repository. 
+
+![New Repository](/00_images/NewRepo.png)
+
+Im sich öffnenden Fenster wählen Sie Ihren Account als Owner aus und benennen das Repository sinnvoll, zum Beispiel als „Netzwerkprojekt“ oder „Karate_Club“. Der Name muss nicht einzigartig gewählt werden, sondern sollte lieber gut im Gedächtnis bleiben. Auf Umlaute sollten Sie auch hier jedoch verzichten. In der Description müssen Sie nichts angeben. Wenn Sie wollen, können Sie hier Ihr Projekt aber kurz beschreiben. Wenn Sie kein Bezahl-Abo abschließen wollen, muss Ihr Repository auf öffentlich bleiben. Das bedeutet aber auch, dass jeder Ihr Projekt einsehen kann. Das ist nicht schlimm, immerhin bearbeiten Sie hier hauptsächlich nur Skripte. Bedenken Sie dennoch, keine privaten Informationen über sich ins Repository zu stellen.
 
 Setzen Sie den Haken beim Punkt „Initialize...“ und lassen Sie die anderen Schaltflächen auf None/None. Drücken Sie auf Create Repository und Sie befinden sich in Ihrem eigenen Projekt. Was Sie dort alles machen können, wird im nächsten Kapitel erklärt.
+
+![Repository gründen](/00_images/RepoGruenden.png)
 
 ### Erste Schritte
 Bevor Sie loslegen können, gibt es noch ein paar Dinge zu tun.
@@ -24,8 +30,16 @@ Bevor Sie loslegen können, gibt es noch ein paar Dinge zu tun.
 #### Mitglieder einladen
 Bisher sind Sie als Admin allein in Ihrem Repository. Unter Settings > Collaborators können Sie Ihre Gruppenmitglieder einladen. Dafür müssen Sie schlicht deren *GitHub*-Usernamen eingeben und einen Einladungslink verschicken, den die Mitglieder in ihrem E-Mail-Posteingang bestätigen müssen.
 
+![Mitglieder einladen](/00_images/Collaborators.png)
+
 #### Projekt einrichten
-Dieser Schritt ist nicht zwingend notwendig, aber durchaus nützlich. Im Reiter „Projects“ können Sie als Admin ein Projekt erstellen. Dieses können Sie einfach gleich wie das Repository benennen. Unter „Template“ können Sie mit der Auswahl „Kanban Basic“ eine interne To-Do-Liste erstellen, die wie beim Online-Anbieter *Trello* gestaltet ist. Wenn Sie das Projekt mit diesem Template erstellt haben, können Sie Aufgaben notieren und als bewegliche Kästchen zwischen den Kategorien „To-Do“, „In Progress“ und „Done“ hin- und herschieben. Diese Kategorien können Sie nach Wunsch beliebig anpassen. Jedes Gruppenmitglied kann das Projekt einsehen und die Aufgaben bearbeiten.
+Dieser Schritt ist nicht zwingend notwendig, aber durchaus nützlich. Im Reiter „Projects“ können Sie als Admin ein Projekt erstellen. Dieses können Sie einfach gleich wie das Repository benennen. Unter „Template“ können Sie mit der Auswahl „Kanban Basic“ eine interne To-Do-Liste erstellen, die wie beim Online-Anbieter *Trello* gestaltet ist. 
+
+![New Project](/00_images/Projekt.png)
+
+Wenn Sie das Projekt mit diesem Template erstellt haben, können Sie Aufgaben notieren und als bewegliche Kästchen zwischen den Kategorien „To-Do“, „In Progress“ und „Done“ hin- und herschieben. Diese Kategorien können Sie nach Wunsch beliebig anpassen. Jedes Gruppenmitglied kann das Projekt einsehen und die Aufgaben bearbeiten.
+
+![To-Dos](/00_images/ToDo.png)
 
 ## GitHub Nutzung
 Das Repository ist angelegt, Ihre Gruppenmitglieder sind eingeladen und gegebenenfalls haben Sie sogar ein Projekt angelegt, in dem Sie Ihre To-Dos organisieren können. Jetzt können Sie damit beginnen, Ihr Netzwerkprojekt in *GitHub* zu bearbeiten. Wie Sie *GitHub* dafür am besten nutzen können, wird in den folgenden Kapiteln schrittweise erklärt.
