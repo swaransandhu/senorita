@@ -89,6 +89,7 @@ Wir arbeiten mit *R*, aber manchmal sind zusätzliche Programme ebenfalls hilfre
 ### SocNetV (Social Network Visualizer)
 
 ### Texteditor (Atom)
+*Atom* ist ein HTML- und CSS-basierter Texteditor, den man [hier](https://atom.io/) herunterladen kann. Mit *Atom* kann man ganz einfach seine IDs auf versteckte Leerzeichen hin überprüfen. Leerzeichen am Ende der IDs, also beispielsweise „Akteurname “ statt „Akteurname“, können nämlich dafür sorgen, dass die Edge- und Nodelisten nicht kompatibel sind, wenn in den Listen die Versionen mit und ohne Leerzeichen gemischt auftauchen. Für die Überprüfung kopiert man die IDs in den *Atom*-Texteditor und drückt CMD+Shift+P (*Mac*) beziehungsweise CTRL+Shift+P (*Windows*). Wenn der Shortcut nicht funktioniert, wählt man unter „Packages > Command Palette > Toggle“. Im sich öffnenden Menü such man nun nach „Whitespace: Remove Trailing Whitespace“. Trailing Whitespaces sind Leerzeichen, die am Ende der Zeile anhängen und daher auf den ersten Blick nicht sichtbar sind. Mit einem Klick auf den Befehl werden alle anhängenden Leerzeichen entfernt und die ID-Liste kann wieder problemlos genutzt werden.
 
 ### Visone
 
