@@ -89,7 +89,7 @@ Die Zentralität eines Akteurs kann demnach nicht nur unterschiedlich definiert,
 
 Welchen Wert man zur Berechnung der Zentralität heranziehen möchte, leitet sich vor allem aus der Forschungsfrage, den inhaltlichen Gegebenheiten des Netzwerks und der Definition der Beziehungen ab. Im Nachstehenden sehen Sie eine kurze Übersicht über die Zentralitätsmaße und deren Befehle für die Pakete *statnet* und *igraph* (Luke 2015, S. 95), wobei wir im Seminar vorrangig mit *igraph* arbeiten.
 
-![Befehle für Akteursmaße](/00_images_Akteurbefehl.png)
+![Befehle für Akteursmaße](/00_images/Akteurbefehl.png)
 
 In den folgenden Unterkapiteln werden wir mehrere Zentralitätsmaße anschauen, darunter das Degree, die Betweenness, Closeness, den Eigenvektor und den K-Core.
 
@@ -140,11 +140,15 @@ Das Eigenvektor-Maß wird wie folgt für alle Knoten berechnet:
 `> eigen_centrality(network)`
 
 ### K-Core
-„Coreness ist ein Maß, das bei der Identifizierung von eng miteinander verbundenen Gruppen innerhalb eines Netzwerks hilfreich ist. Der K-Core bezeichnet die größte der Gruppen, deren Entitäten mit mindestens k anderen Entitäten innerhalb der Gruppe verbunden sind“ (IBM Corporation, 2017, Abschnitt 10).
+„Coreness ist ein Maß, das bei der Identifizierung von eng miteinander verbundenen Gruppen innerhalb eines Netzwerks hilfreich ist. Der K-Core bezeichnet die Größte der Gruppen, deren Entitäten mit mindestens k anderen Entitäten innerhalb der Gruppe verbunden sind“ (IBM Corporation, 2017, Abschnitt 10).
 
 Der K-Core kann mithilfe dieses Befehls berechnet werden:
 
 `> coreness(network)`
+
+## Beispiel Semesternetzwerk
+
+Wenden Sie Ihr neu erlerntes Wissen gleich an und berechnen Sie die verschiedenen Netzwerk- und Akteursmaße innerhalb des Semesternetzwerks! Laden Sie dazu [dieses Skript](/skripte/AkteurundNetzwerk_Semester.R) herunter, speichern Sie es in Ihrem Working Directory ab und öffnen es in *RStudio*. Im Video wird Ihnen Schritt für Schritt erklärt, welche Maße erhoben werden und welche Aussagekraft diese besitzen.
 
 ## Quellen
 Fuhse, J. A. (2016). *Soziale Netzwerke: Konzepte und Forschungsmethoden*. Konstanz u. München: UVK Verlagsgesellschaft.

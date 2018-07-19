@@ -3,9 +3,18 @@
 In diesem Abschnitt werden viele der gelernten Befehle und Arbeitsschritte aus den vorherigen Kapitel praktisch angewandt. Dafür wurde eigens ein kleines Netzwerk erhoben. Das Projekt ist lediglich als Anschauung konzipiert und erhebt nicht den Anspruch, eine vollwertige Netzwerkforschung zu sein.
 
 ## Operationalisierung
+Bevor man ein Projekt beginnt, sollte man mehrere Dinge genau abklären. Dazu gehören das **Thema**, das zugrundeliegende **Interesse und die Relevanz**, der **Datenzugang** und die **Forschungsfrage**.
+
+Themen und Ideen für ein spannendes Netzwerkprojekt findet man im Grunde überall. Wir sind umgeben von Netzwerken, die erforscht werden können. Bei diesem Projekt wurden die Engagements Oscar-prämierter Schauspieler betrachtet. Das zugrundeliegende Interesse besteht darin, zu untersuchen, inwiefern jene Schauspieler über gemeinsame Projekte in Verbindung stehen und ob „gute“ Schauspieler in einem dichteren Netzwerk zueinander stehen, da sich die Regisseure womöglich von einem Engagement mehrerer guter Schauspieler einen besseren Film versprechen.
+
+Bei der Abklärung des Forschungsinteresses und der -relevanz sollte man sich nicht nur auf seine eigene Einschätzung verlassen, sondern einschlägige Literaturen lesen und bearbeiten. Eine hohe Relevanz haben Themen, die einen Einfluss auf andere Bereiche haben und noch nicht hinreichend erforscht wurden. Ein Thema kann sich auch erst durch die Recherche ergeben, beispielsweise, wenn man Lücken in bestehenden Forschungen schließen möchte. In dem Fall ist die Relevanz nahezu automatisch gegeben.
+
+Der Datenzugang muss vorab genau geklärt werden. Im Falle dieses Netzwerks war es möglich, qualitativ hochwertige Informationen über Portale wie IMDB zu erhalten. Eine solch gute Datenquelle im Internet zu finden, ist jedoch nicht die Regel, sondern eher die Ausnahme. Manchmal geht es jedoch nicht anders, als unzureichende Quellen zu nutzen. Dann müssen die Limitationen dieser Quellen im Forschungsbericht genannt und reflektiert werden. Die natürlichste Form der Datenquelle innerhalb einer Netzwerkforschung ist das Interview mit Akteuren, wobei man hier oft Abstriche in der Qualität der Daten machen muss, da nicht alle Akteure einer Gruppe an der Forschung teilnehmen möchten oder ein gewisses Bias in den Köpfen der Befragten entsteht.
+
+Die Forschungsfrage sollte konkret und nicht „ins Blaue“ formuliert werden. Es lohnt sich, das erwünschte Forschungsfeld vorab explorativ zu ergründen, um interessante Aspekte aufzuwerfen. Überhaupt lohnt sich ein breit ausgelegter „Pre-Test“, um zu schauen, ob sich überhaupt ein Netzwerk ergibt.
 
 ## Erhebung und Bereinigung
-Für die Erhebung der Daten wurde ausschließlich *Google Tables* genutzt. Zur Überprüfung der Daten wurde *RStudio* verwendet. Zunächst wurde erhoben, in welchen Filmen die Schauspieler in den Jahren XX bis XX gespielt hatten. Dabei wurden – da es sich hierbei um ein bi-partites Netzwerk handelt – die Filme als weitere Akteure behandelt. In der Edgelist wurde in den *from*- und *to*-Spalten also jeweils ein Schauspieler-Film-Pärchen abgetragen. In der Spalte *weight* wurde festgehalten, XXXX. Die ersten Zeilen der fertigen Edgelist sehen folgendermaßen aus:
+Für die Erhebung der Daten wurde ausschließlich *Google Tables* genutzt. Zur Überprüfung der Daten wurde *RStudio* verwendet. Zunächst wurde erhoben, in welchen Filmen die Schauspieler gespielt haben. Dabei wurden – da es sich hierbei um ein bi-partites Netzwerk handelt – die Filme als weitere Akteure behandelt. In der Edgelist wurde in den *from*- und *to*-Spalten also jeweils ein Schauspieler-Film-Pärchen abgetragen. Das Beziehungsgewicht wurde in der Spalte *weight* festgehalten. Die ersten Zeilen der fertigen Edgelist sehen folgendermaßen aus:
 
 ![Edgelist Oscar](/00_images/EdgelistOsc.png)
 
@@ -50,7 +59,6 @@ Wir haben nun unser finales *igraph*-Objekt oscar, das wir uns in der Konsole au
 
 `> oscar`
 
-
 Wir erhalten das folgende Ergebnis.
 
 ![Edgelist Oscar](/00_images/oscar.png)
@@ -71,6 +79,111 @@ Hier muss eindeutig noch eine Menge getan werden, damit das Netzwerk anschaulich
 
 ## Berechnung relevanter Maßen
 
+### Netzwerkmaße
+Die **Dichte** berechnen wir mithilfe von
+
+`> edge_density(oscar)`
+
+Als Ergebnis erhalten wir 0.015, also sind 1,5 Prozent der möglichen Kanten tatsächlich realisiert. Das Netzwerk hat demnach eine sehr geringe Dichte. Rein technisch betrachtet ist die Dichte deswegen gering, da das Netzwerk in mehrere Komponenten zerfällt. Wir überprüfen diese Annahme schnell mit dem folgenden Befehl.
+
+`> components(oscar)`
+
+Das Netzwerk hat neun Komponenten. Das bedeutet, dass eine Menge Kanten allein dadurch entfallen, da es keine Verbindungen zwischen den Komponenten gibt. Zudem haben die meisten Filme lediglich eine Verbindung zu einem Akteur. 
+
+Der **Triadenzensus** kann für das Netzwerk nicht durchgeführt werden, da es ungerichtet ist und die Triaden-Typen nicht abgebildet werden können. Dafür kann man jedoch den **Cliques**-Befehl anwenden und die Anzahl der Knoten auf mini- und maximal drei stellen.
+
+`> cliques(oscar, min="3", max="3")`
+
+Als Ergebnis erhalten wir list(), das bedeutet, dass es keine Ergebnisse gibt. Diesen Umstand können wir uns leicht erklären. Eine Clique mit drei Knoten, also eine Triade, ist schlicht eine unmögliche Konstellation innerhalb dieses Netzwerks. Das liegt daran, dass die Kanten jeweils zwischen Schauspielern und Filmen liegen und nicht zwischen Akteuren desselben Typs. Drei Knoten können daher unmöglich zueinander in Verbindung stehen, da mindestens eine Kante innerhalb einer derartigen Triade zwischen zwei Filmen oder Schauspielern existieren müsste. Im Klartext bedeutet das, dass das Netzwerk lediglich aus Dyaden besteht. Die einzige Cliquen-Form besteht demnach aus zwei Knoten. Die Anzahl der max cliques und largest cliques beträgt jeweils 257 und bietet keinen Mehrwert oder Erkenntnisgewinn.Verdoppelt man die 257, kommt man übrigens auf 514 Beziehungen. Das igraph-Objekt hat jedoch 516 Beziehungen. Wohin die letzte Dyade verschwunden ist, wird an dieser Stelle nicht klar, macht jedoch aus Sicht der Forschung keinen Unterschied. 
+
+Die am **weitesten voneinander entfernten Knoten** ermitteln wir mit dem Befehl:
+
+`> farthest_vertices(oscar)`
+
+Als Ergebnis erhalten wir zwei Filme – 12 Years a Slave und Black Swan. Zwischen ihnen liegen 16 Kanten. Diese Berechnung hat jedoch keinerlei Aussage oder Logik, da man nicht „über Schauspieler zu Filmen läuft“ oder Filme geographisch, emotional etc. weiter oder näher zueinander liegen können.
+
+Die **mittlere Pfaddistanz** erhalten wir mithilfe von:
+
+`> mean_distance(oscar)`
+
+Sie liegt bei etwa 6 Kanten. Der hohe Wert lässt sich damit erklären, dass wir ein dyadisch aufgebautes Netzwerk haben. Einen Mehrwert bietet dieser Wert jedoch ebenfalls nicht. Die Berechnung des **Durchmessers** macht an dieser Stelle ebenfalls keinen Sinn.
+
+### Akteursmaße
+Den **Degree** der Knoten berechnen wir mithilfe von:
+
+`> degree(oscar)`
+
+Dabei interessieren uns vorrangig die Degrees der Schauspieler. Je mehr Degrees ein Schauspieler hat, in desto mehr Projekten hat er im Beobachtungszeitraum mitgewirkt. Ein höherer Degree-Wert kann damit (vorsichtig!) als eine bessere Auftragslage interpretiert werden. In der Interpretation würde man nun auffällige, also besonders hohe und niedrige, Werte näher betrachten und die betroffenen Knoten auf ihre Attribute hin untersuchen. Die Degree-Werte kann man natürlich auch normalisieren, um eine bessere Vergleichsbasis zu schaffen.
+
+`> degree(oscar, normalized = TRUE)`
+
+Mit der **Betweenness-Zentralität** prüft man, ob es Akteure gibt, die eine gewisse Brokerage-Position einnehmen.
+
+`> betweenness(oscar)`
+
+Die Berechnung der Betweenness macht jedoch wenig Sinn, da die Kanten nicht die nötige Beschaffung für eine Brokerage-Betrachtung bieten. 
+
 ## Visualisierung
 
+Da das Netzwerk zwei Knotentypen abbildet – Schauspieler und Filme –, ist es ratsam, diese Gruppen visuell zu differenzieren. Daher kümmern wir uns zunächst darum, die Knoten unterschiedlich einzufärben.
+
+`> vcoloscar <- vcount(oscar)`
+
+`> vcoloscar[V(oscar)$type == "1"] <- "green"`
+
+`> vcoloscar[V(oscar)$type == "2"] <- "gold"`
+
+Wenn wir nun das Netzwerk visualisieren, können wir vcoloscar für die Definition der Knotenfarbe nutzen.
+
+`> plot(oscar, vertex.color=vcoloscar)`
+
+![Grün und Gelb](/00_images/GruenGelb.png)
+
+Spätestens jetzt sollten wir uns um die Knotenlabels kümmern, damit wir eine bessere Übersicht vom Netzwerk erhalten. Wir entscheiden, dass das Labeln der Filme nicht weiter relevant ist und uns nur die Bezeichnung der Schauspieler interessiert. Wir wollen also nur die Labels der Knoten behalten, deren Typ gleich zwei ist. Das können wir ganz einfach im Plot-Befehl festlegen.
+
+`> plot(oscar, vertex.color=vcoloscar, vertex.label = ifelse(V(oscar)$type == "2", V(oscar)$name, NA))`
+
+Im Klartext bedeutet das Attribut: „Wenn ein Knoten die type-Ausprägung „2“ hat, so wird sein Attribut „name“ als label festgelegt. Alle anderen Knoten, die dem type gleich 2 nicht entsprechen, haben kein Laben, da „NA“.“ Das Ergebnis lässt sich sehen:
+
+![Labels](/00_images/Label.png)
+
+Jetzt stören uns weniger die Labels als die Knoten selbst. Mit der Knotengröße verfahren wir daher ähnlich. Die Größe der Schauspieler soll anhand des Degrees bestimmt werden, die restlichen Knoten, also die Filme, sollen eine unveränderliche Größe haben. Das erreichen wir mit dem folgenden Argument: 
+
+`> plot(oscar, vertex.color=vcoloscar, vertex.label = ifelse(V(oscar)$type == "2", V(oscar)$name, NA), vertex.size = ifelse(V(oscar)$type == "2", degree(oscar)/3, 3))`
+
+Im Klartext: „Wenn ein Knoten die type-Ausprägung „2“ hat, so wird seine Größe anhand des Degrees bestimmt. Dabei wird der Degree geteilt, damit die Knoten nicht zu groß ausfallen. Alle anderen Knoten, die dem type gleich 2 nicht entsprechen, haben die Größe „3“.“
+
+![Knotengröße](/00_images/Nodesize.png)
+
+Jetzt kümmern wir uns um das Layout. Dafür legen wir zunächst eine Variable an. und passen dann das Netzwerk mit den x- und y-Koordinaten an das Fenster an. Achtung: hier muss man ausprobieren, bis es gut aussieht!
+
+`> coords <- layout_with_kk(oscar)*0.2`
+`> plot(oscar, vertex.color=vcoloscar, vertex.label = ifelse(V(oscar)$type == "2", V(oscar)$name, NA), vertex.size = ifelse(V(oscar)$type == "2", degree(oscar)/3, 3), layout = coords, rescale = FALSE, ylim=c(-1.5,2.2),xlim=c(-0.5,0.5))`
+
+![Layout](/00_images/LayoutOscar.png)
+
+Die Breite der Kanten soll sich am Gewicht der Kanten orientieren. Dafür fügen wir hinzu:
+
+`> plot(oscar, vertex.color=vcoloscar, vertex.label = ifelse(V(oscar)$type == "2", V(oscar)$name, NA), vertex.size = ifelse(V(oscar)$type == "2", degree(oscar)/3, 3), layout = coords, rescale = FALSE, ylim=c(-1.5,2.2),xlim=c(-0.5,0.5), edge.width=E(oscar)$weight)`
+
+![Layout](/00_images/EdgeOscar.png)
+
+Nehmen wir noch ein paar letzte Schönheitsanpassungen vor. Wir verändern die Knotenumrissfarbe, die Label-Schriftart, -farbe und -größe sowie die Distanz des Labels zum Knoten.
+
+`> plot(oscar, vertex.color=vcoloscar, vertex.label = ifelse(V(oscar)$type == "2", V(oscar)$name, NA), vertex.size = ifelse(V(oscar)$type == "2", degree(oscar)/3, 3), layout = coords, rescale = FALSE, ylim=c(-1.5,2.2),xlim=c(-0.5,0.5), edge.width=E(oscar)$weight, vertex.frame.color = "transparent", vertex.label.family = "Helvetica", vertex.label.color = "black", vertex.label.cex=c(0.7), vertex.label.dist=-2)`
+
+![Visualisierung](/00_images/VisualOscar2.png)
+
+In diesem Fall gefällt uns das Ergebnis und wir beschließen vorerst die Visualisierung. Natürlich kann man noch eine Menge anderer Dinge anpassen und individualisieren.
+
 ## Interpretation der Daten und Ausblick
+Zum Schluss jedes Projekts sollten die erfassten Daten und Beobachtungen ausgewertet und interpretiert werden. Wenn möglich, sollten Sie sich ebenfalls darum bemühen, Hypothesen aus ihren Beobachtungen zu ziehen. Achten Sie jedoch darauf, dass man selten kausale Beziehungen unterstellen kann und diese höchstens im Rahmen einer Vermutung aussprechen möge. Bei einem Netzwerk wie diesem ist es beispielsweise problematisch, präskriptive Aussagen über die Beziehungen zu treffen, da Schauspieler aus ganz unterschiedlichen Gründen für Produktionen engagiert werden. Eine Hypothese à la: „Colin Firth hat keine Freunde innerhalb der Oscar-Gemeinde, da er innerhalb des Netzwerks exkludiert ist“, wäre absolut falsch und nicht gerechtfertigt. Diese Unterstellung fehle zudem jedwede wissenschaftliche Basis.
+
+Orientieren Sie sich daher zunächst an deskriptiven Aussagen und setzen Sie die Akteurs- und Netzwerkmaße in einen logische Zusammenhang. Versuchen Sie, anhand der Knotenattribute andere Perspektiven einzunehmen. Vielleicht bilden sich ja Geschlechter-spezifische Untergruppen? Hier wäre es natürlich ratsam gewesen, eine Menge weiterer Knotenattribute zu erfassen, beispielsweise das Genre der Filme oder das Alter und die Herkunft der Schauspieler.
+
+Ziehen Sie die Netzwerkmechanismen in Ihre Betrachtungen hinzu und behelfen Sie sich mit einschlägigen Literaturen, um Ihre Ergebnisse auszuwerten und zu prüfen. Sprechen Sie mit Ihren Kommilitonen und versuchen Sie, möglichst viele Eindrücke zu gewinnen. Bleiben Sie jedoch bei den „harten Fakten“.
+
+Zuletzt sollten Sie ebenfalls einen Ausblick bieten. Welche Forschungen könnten an Ihre anknüpfen, welche Lücken weist ihre Forschung auf, die eine weitergehende Betrachtung schließen könnte? Die Erfassung und Betrachtung weiterer Attribute sowie die Ausweitung des Forschungsgegenstands zählen hier dazu.
+
+### Tipp für einen spannenden Forschungsbericht
+Forschung ist nicht nur dafür da, neue Erkenntnisse zu gewinnen und unbekannte Bereiche zu ergründen, sondern auch, um andere zu begeistern. Versuchen Sie daher, innerhalb des Berichts und während Ihres gesamten Forschungsprozesses eine Art Storyline zu verfolgen. Eine feste Linie kann Ihnen ebenfalls dabei helfen, Hypothesen aufzustellen und ein Forschungsziel in den Blick zu nehmen. Welche Geschichte wollen Sie mit dem Netzwerk erzählen, was bringt Sie dem Leser und welche Erkenntnisse gewinnt er durch Sie? Diese Frage sollten Sie ständig im Hinterkopf behalten.
